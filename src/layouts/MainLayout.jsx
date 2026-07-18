@@ -1,16 +1,23 @@
-import React from 'react'
+import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import Navbar from '../components/Navbar/Navbar'
+import AuthModal from '../components/Auth/AuthModal'
 
 const MainLayout = () => {
+
+  const [showModal, setShowModal] = useState(false)
+
+
   return (
     <div>
-        <Navbar/>
+      <Navbar setShowModal={setShowModal} />
 
-        <Outlet/>
+      {showModal && <AuthModal />}
 
-        <h2>Footer</h2>
-      
+      <Outlet />
+
+      <h2>Footer</h2>
+
     </div>
   )
 }

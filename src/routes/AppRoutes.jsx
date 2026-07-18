@@ -10,11 +10,17 @@ import Destinations from "../pages/Destinations/Destinations";
 import Hotels from "../pages/Hotels/Hotels";
 import Notfound from "../pages/Notfound/Notfound";
 
+// import Register from "../components/Auth/Register";
+// import Login from "../components/Auth/Login";
+
 
 const AppRoutes = () => {
     return (
         <BrowserRouter>
             <Routes>
+                {/* <Route path="/register" element={<Register />} />
+                <Route path="/login" element={<Login />} /> */}
+
                 <Route element={<MainLayout />} >
                     <Route path="/" element={<Home />} />
                     <Route path="/destinations" element={<Destinations />} />
