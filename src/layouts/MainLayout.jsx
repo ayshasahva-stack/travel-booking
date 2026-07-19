@@ -12,7 +12,9 @@ const MainLayout = () => {
     <div>
       <Navbar setShowModal={setShowModal} />
 
-      {showModal && <AuthModal />}
+      {showModal && (
+        <AuthModal setShowModal={setShowModal} />
+      )}
 
       <Outlet />
 
