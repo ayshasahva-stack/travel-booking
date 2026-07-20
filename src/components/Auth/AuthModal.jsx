@@ -1,8 +1,13 @@
+import { useState } from "react";
+
 import loginBanner from "../../assets/images/login-banner.jpg";
-// import Login from "./Login";
+import Login from "./Login";
 import Register from "./Register";
 
+
 function AuthModal({ setShowModal }) {
+
+    const [isLogin, setIsLogin] = useState(true)
 
     const closeModal = () => {
         setShowModal(false)
@@ -12,7 +17,7 @@ function AuthModal({ setShowModal }) {
     return (
         <div className="fixed inset-0 bg-black/75 flex items-center justify-center">
 
-            <div className="relative bg-white w-[900px] h-[550px] rounded-3xl shadow-2xl overflow-hidden ">
+            <div className="relative bg-white w-[900px] h-[600px] rounded-3xl shadow-2xl overflow-hidden mt-15">
 
                 {/* close button */}
 
@@ -25,8 +30,10 @@ function AuthModal({ setShowModal }) {
 
                 <div className="flex h-full ">
 
-                    {/* <Login/> */}
-                    <Register/>
+                    {isLogin
+                        ? <Login setIsLogin={setIsLogin} />
+                        : <Register setIsLogin={setIsLogin} />
+                    }
 
                     <div className="flex-1 relative">
                         <img
