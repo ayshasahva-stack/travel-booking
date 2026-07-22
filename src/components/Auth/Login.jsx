@@ -2,10 +2,19 @@ import React, { useState } from 'react'
 
 const Login = ({ setIsLogin }) => {
 
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const [formData, setFormData] = useState({
+    email: "",
+    password: ""
+  })
 
   const [error, setError] = useState({})
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormData({ ...formData, [name]: value })
+
+  }
+
 
   const handleLogin = (e) => {
 
@@ -13,25 +22,34 @@ const Login = ({ setIsLogin }) => {
 
     const newErrors = {}
 
-    if (email.trim() === "") {
+    if (!formData.email.trim()) {
       newErrors.email = "Email is required"
 
     }
-    if (password.trim() === "") {
-      newErrors.password = 'password is required'
+    else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
     }
 
+    if (!formData.password.trim()) {
+      newErrors.password = 'password is required'
+    } else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/.test(formData.password)) {
+      newErrors.password = 
+  "Password must contain uppercase, lowercase, number, special character and be at least 8 characters long.";
+
+    }
     setError(newErrors)
 
-    if (Object.keys(newErrors).length > 0) {
-      return
+    if (Object.keys(newErrors).length === 0) {
+      alert("register successfully");
+      
+      setFormData({
+        email: "",
+        password: "",
+      });
+
+      setError({});
+
     }
-    console.log('login success');
-
-
-    console.log(email);
-    console.log(password);
-
 
   }
 
@@ -55,8 +73,9 @@ const Login = ({ setIsLogin }) => {
           <input
             type="email"
             placeholder="Enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            name='email'
+            value={formData.email}
+            onChange={ handleChange}
             className="w-full border border-gray-400 rounded-xl px-4 py-3 focus:outline-none  focus:border-teal-600" />
 
           {error.email && (<p className='text-red-700 text-sm mt-1'>{error.email}</p>)}
@@ -70,11 +89,12 @@ const Login = ({ setIsLogin }) => {
           <input
             type="password"
             placeholder="Enter your password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            name='password'
+            value={formData.password}
+            onChange={handleChange}
             className="w-full border border-gray-400 rounded-xl px-4 py-3 focus:outline-none  focus:border-teal-600 " />
 
-          {error.password && (<p className='text-red-700 text-sm mt-1'>Password is required</p>)}
+          {error.password && (<p className='text-red-700 text-sm mt-1'>{error.password}</p>)}
         </div>
 
 
@@ -95,6 +115,7 @@ const Login = ({ setIsLogin }) => {
           </p>
 
           <button
+            type='button'
             className="text-teal-600  hover:underline "
             onClick={() => setIsLogin(false)}>
             Create Account
