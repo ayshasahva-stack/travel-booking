@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Login = ({ setIsLogin }) => {
+const Login = ({ setIsLogin, setShowModal }) => {
 
   const [formData, setFormData] = useState({
     email: "",
@@ -32,27 +32,46 @@ const Login = ({ setIsLogin }) => {
 
     if (!formData.password.trim()) {
       newErrors.password = 'password is required'
-    } else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/.test(formData.password)) {
-      newErrors.password = 
-  "Password must contain uppercase, lowercase, number, special character and be at least 8 characters long.";
-
     }
     setError(newErrors)
 
-    if (Object.keys(newErrors).length === 0) {
-      alert("register successfully");
-      
-      setFormData({
-        email: "",
-        password: "",
-      });
-
-      setError({});
-
+    if (Object.keys(newErrors).length > 0) {
+      return
     }
 
-  }
+    const users = JSON.parse(localStorage.getItem('users')) || []
 
+    const user = users.find((user) => user.email === formData.email)
+
+   if (!user) {
+  setError({
+    email: "No account found with this email",
+  });
+  return;
+}
+
+if (user.password !== formData.password) {
+  setError({
+    password: "Incorrect password",
+  });
+  return;
+}
+localStorage.setItem(
+    "currentUser",
+    JSON.stringify(user)
+);
+
+alert("Login Successfully");
+
+setFormData({
+  email: "",
+  password: "",
+});
+setShowModal(false);
+
+setError({});
+
+  }
   return (
 
     <div className="flex-1 bg-white p-12 ">
@@ -75,7 +94,7 @@ const Login = ({ setIsLogin }) => {
             placeholder="Enter your email"
             name='email'
             value={formData.email}
-            onChange={ handleChange}
+            onChange={handleChange}
             className="w-full border border-gray-400 rounded-xl px-4 py-3 focus:outline-none  focus:border-teal-600" />
 
           {error.email && (<p className='text-red-700 text-sm mt-1'>{error.email}</p>)}

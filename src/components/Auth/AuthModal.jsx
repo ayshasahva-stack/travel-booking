@@ -31,7 +31,8 @@ function AuthModal({ setShowModal }) {
                 <div className="flex h-full ">
 
                     {isLogin
-                        ? <Login setIsLogin={setIsLogin} />
+                        ? <Login setIsLogin={setIsLogin}
+                            setShowModal={setShowModal} />
                         : <Register setIsLogin={setIsLogin} />
                     }
 
