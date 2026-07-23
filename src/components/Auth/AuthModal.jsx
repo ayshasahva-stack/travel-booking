@@ -5,7 +5,7 @@ import Login from "./Login";
 import Register from "./Register";
 
 
-function AuthModal({ setShowModal }) {
+function AuthModal({ setShowModal,setCurrentUser }) {
 
     const [isLogin, setIsLogin] = useState(true)
 
@@ -32,7 +32,8 @@ function AuthModal({ setShowModal }) {
 
                     {isLogin
                         ? <Login setIsLogin={setIsLogin}
-                            setShowModal={setShowModal} />
+                            setShowModal={setShowModal} 
+                            setCurrentUser={setCurrentUser}/>
                         : <Register setIsLogin={setIsLogin} />
                     }
 

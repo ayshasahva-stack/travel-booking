@@ -6,14 +6,22 @@ import AuthModal from '../components/Auth/AuthModal'
 const MainLayout = () => {
 
   const [showModal, setShowModal] = useState(false)
+  const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem("currentUser")))
 
 
   return (
     <div>
-      <Navbar setShowModal={setShowModal} />
+      <Navbar
+        setShowModal={setShowModal}
+        currentUser={currentUser}
+        setCurrentUser={setCurrentUser}
+      />
 
       {showModal && (
-        <AuthModal setShowModal={setShowModal} />
+        <AuthModal
+          setShowModal={setShowModal}
+          setCurrentUser={setCurrentUser}
+        />
       )}
 
       <Outlet />

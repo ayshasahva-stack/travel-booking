@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Login = ({ setIsLogin, setShowModal }) => {
+const Login = ({ setIsLogin, setShowModal, setCurrentUser }) => {
 
   const [formData, setFormData] = useState({
     email: "",
@@ -43,33 +43,34 @@ const Login = ({ setIsLogin, setShowModal }) => {
 
     const user = users.find((user) => user.email === formData.email)
 
-   if (!user) {
-  setError({
-    email: "No account found with this email",
-  });
-  return;
-}
+    if (!user) {
+      setError({
+        email: "No account found with this email",
+      });
+      return;
+    }
 
-if (user.password !== formData.password) {
-  setError({
-    password: "Incorrect password",
-  });
-  return;
-}
-localStorage.setItem(
-    "currentUser",
-    JSON.stringify(user)
-);
+    if (user.password !== formData.password) {
+      setError({
+        password: "Incorrect password",
+      });
+      return;
+    }
+    localStorage.setItem(
+      "currentUser",
+      JSON.stringify(user)
+    );
 
-alert("Login Successfully");
+    alert("Login Successfully");
+    setCurrentUser(user)
 
-setFormData({
-  email: "",
-  password: "",
-});
-setShowModal(false);
+    setFormData({
+      email: "",
+      password: "",
+    });
+    setShowModal(false);
 
-setError({});
+    setError({});
 
   }
   return (

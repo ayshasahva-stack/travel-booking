@@ -2,9 +2,10 @@ import { FaPlaneDeparture, FaBars, FaTimes } from "react-icons/fa";
 import { NavLink, Link } from "react-router-dom";
 import { useState } from "react";
 
-function Navbar({ setShowModal }) {
+function Navbar({ setShowModal,setCurrentUser,currentUser }) {
 
   const [menuOpen, setMenuOpen] = useState(false)
+
 
 
   const toggleMenu = () => {
@@ -15,8 +16,13 @@ function Navbar({ setShowModal }) {
     setMenuOpen(false)
   }
 
-  const openModal=()=>{
+  const openModal = () => {
     setShowModal(true)
+  }
+
+  const handleLogout=()=>{
+    localStorage.removeItem("currentUser")
+    setCurrentUser(null)
   }
 
 
@@ -63,13 +69,17 @@ function Navbar({ setShowModal }) {
                 "text-blue-600 font-semibold" :
                 "text-gray-700 hover:text-blue-600"}`}>Contact</NavLink>
 
-          <button
+          {/* <button
             onClick={openModal}
-            className="text-gray-700 hover:text-blue-600 transition-colors duration-300">Log in</button>
+            className="text-gray-700 hover:text-blue-600 transition-colors duration-300">Log in</button> */}
 
-          <button
+          {currentUser ? ( <button onClick={handleLogout} className="text-blue-700">
+    Hi, {currentUser.username} (Logout)
+  </button>
+          ) : (<button
             onClick={openModal}
-            className="border border-blue-600 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-300">Register</button>
+            className="text-gray-700 hover:text-blue-600 transition-colors duration-300">Log in</button>)}
+
 
           {/* link for button */}
           <Link to='/booking'
