@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { loginThunk } from '../../redux/auth/authThunk'
 
 const Login = ({ setIsLogin, setShowModal, setCurrentUser }) => {
 
@@ -9,6 +11,10 @@ const Login = ({ setIsLogin, setShowModal, setCurrentUser }) => {
 
   const [error, setError] = useState({})
 
+  const dispatch = useDispatch()
+
+  const { loading } = useSelector((state) => state.auth)
+
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData({ ...formData, [name]: value })
@@ -16,7 +22,7 @@ const Login = ({ setIsLogin, setShowModal, setCurrentUser }) => {
   }
 
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
 
     e.preventDefault()
 
@@ -39,40 +45,39 @@ const Login = ({ setIsLogin, setShowModal, setCurrentUser }) => {
       return
     }
 
-    const users = JSON.parse(localStorage.getItem('users')) || []
+    const result = await dispatch(loginThunk(formData));
 
-    const user = users.find((user) => user.email === formData.email)
 
-    if (!user) {
-      setError({
-        email: "No account found with this email",
+    if (loginThunk.fulfilled.match(result)) {
+      alert("Login Successfully")
+
+      localStorage.setItem("currentUser", JSON.stringify(result.payload));
+      setCurrentUser(result.payload);
+
+      setFormData({
+        email: "",
+        password: ""
       });
-      return;
+      setError({})
+      setShowModal(false)
+
+    } else if (loginThunk.rejected.match(result)) {
+      if (result.payload === "User not found") {
+
+        setError({
+          email: result.payload
+        })
+
+      }
+      else if (result.payload === "Invalid password") {
+        setError({
+          password: result.payload
+        })
+      }
     }
-
-    if (user.password !== formData.password) {
-      setError({
-        password: "Incorrect password",
-      });
-      return;
-    }
-    localStorage.setItem(
-      "currentUser",
-      JSON.stringify(user)
-    );
-
-    alert("Login Successfully");
-    setCurrentUser(user)
-
-    setFormData({
-      email: "",
-      password: "",
-    });
-    setShowModal(false);
-
-    setError({});
-
   }
+
+
   return (
 
     <div className="flex-1 bg-white p-12 ">

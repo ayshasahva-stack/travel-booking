@@ -23,3 +23,23 @@ export const registerThunk = createAsyncThunk(
         }
     }
 )
+
+export const loginThunk = createAsyncThunk(
+    "auth/login",
+    async (loginData, { rejectWithValue }) => {
+        try {
+            const user = await getUserByEmail(loginData.email);
+            if (!user) {
+                return rejectWithValue("User not found");
+            }
+            if (user.password !== loginData.password) {
+                return rejectWithValue("Invalid password");
+            }
+            return user
+        }
+
+        catch (error) {
+            return rejectWithValue(error.message)
+        }
+    }
+)

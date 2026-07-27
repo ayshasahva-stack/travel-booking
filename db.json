@@ -1,3 +1,23 @@
 {
-    "users":[]
+  "users": [
+    {
+      "username": "aysha sahva",
+      "email": "aysha@gmail.com",
+      "password": "!A1aaaaa",
+      "id": "OOEB1-mCiCI"
+    },
+    {
+      "username": "aysha sahva",
+      "email": "MOHDIRFANGAFOOR9091@GMAIL.COM",
+      "password": "!A1aaaaaa",
+      "id": "omBqurpmv-0"
+    },
+    {
+      "username": "aysha sahva",
+      "email": "ayshasahv@gmail.com",
+      "password": "!A1a2wsxc",
+      "id": "AftRh9yD0xk"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
