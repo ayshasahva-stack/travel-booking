@@ -1,10 +1,12 @@
 import { FaPlaneDeparture, FaBars, FaTimes } from "react-icons/fa";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-function Navbar({ setShowModal,setCurrentUser,currentUser }) {
+function Navbar({ setShowModal, setCurrentUser, currentUser }) {
 
   const [menuOpen, setMenuOpen] = useState(false)
+
+  const navigate = useNavigate()
 
 
 
@@ -20,10 +22,18 @@ function Navbar({ setShowModal,setCurrentUser,currentUser }) {
     setShowModal(true)
   }
 
-  const handleLogout=()=>{
+  const handleLogout = () => {
     localStorage.removeItem("currentUser")
     setCurrentUser(null)
   }
+
+  const handleBooking = () => {
+    if (currentUser) {
+      navigate("/booking");
+    } else {
+      setShowModal(true);
+    }
+  };
 
 
   return (
@@ -73,18 +83,21 @@ function Navbar({ setShowModal,setCurrentUser,currentUser }) {
             onClick={openModal}
             className="text-gray-700 hover:text-blue-600 transition-colors duration-300">Log in</button> */}
 
-          {currentUser ? ( <button onClick={handleLogout} className="text-blue-700">
-    Hi, {currentUser.username} (Logout)
-  </button>
+          {currentUser ? (<button onClick={handleLogout} className="text-blue-700">
+            Hi, {currentUser.username} (Logout)
+          </button>
           ) : (<button
             onClick={openModal}
             className="text-gray-700 hover:text-blue-600 transition-colors duration-300">Log in</button>)}
 
 
           {/* link for button */}
-          <Link to='/booking'
-            className="hidden md:block bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300">
-            Book Now</Link>
+          <button
+            onClick={handleBooking}
+            className="hidden md:block bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300"
+          >
+            Book Now
+          </button>
         </div>
 
         {/* Mobile Hamburger */}
@@ -138,12 +151,37 @@ function Navbar({ setShowModal,setCurrentUser,currentUser }) {
                 "text-blue-600 font-semibold" :
                 "text-gray-700 hover:text-blue-600"}`}>Contact</NavLink>
 
-          <Link
-            to="/booking"
-            onClick={closeMenu}
-            className="bg-blue-600 text-white px-6 py-2 rounded-lg text-center" >
+          {currentUser ? (
+            <button
+              onClick={() => {
+                closeMenu();
+                handleLogout();
+              }}
+              className="text-left py-2 text-blue-700"
+            >
+              Hi, {currentUser.username} (Logout)
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                closeMenu();
+                openModal();
+              }}
+              className="text-left py-2 text-gray-700 hover:text-blue-600"
+            >
+              Log in
+            </button>
+          )}
+
+          <button
+            onClick={() => {
+              closeMenu();
+              handleBooking();
+            }}
+            className="bg-blue-600 text-white px-6 py-2 rounded-lg text-center"
+          >
             Book Now
-          </Link>
+          </button>
 
         </div>
       )}

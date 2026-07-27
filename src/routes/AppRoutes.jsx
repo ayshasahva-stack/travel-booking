@@ -9,6 +9,8 @@ import About from "../pages/About/About";
 import Destinations from "../pages/Destinations/Destinations";
 import Hotels from "../pages/Hotels/Hotels";
 import Notfound from "../pages/Notfound/Notfound";
+import ProtectedRoute from "./ProtectedRoute";
+
 
 // import Register from "../components/Auth/Register";
 // import Login from "../components/Auth/Login";
@@ -25,7 +27,11 @@ const AppRoutes = () => {
                     <Route path="/" element={<Home />} />
                     <Route path="/destinations" element={<Destinations />} />
                     <Route path="/hotels" element={<Hotels />} />
-                    <Route path="/booking" element={<Booking />} />
+
+                    <Route element={<ProtectedRoute />}>
+                        <Route path="/booking" element={<Booking />} />
+                    </Route>
+                    
                     <Route path="/about" element={<About />} />
                     <Route path="/contact" element={<Contact />} />
                 </Route>
