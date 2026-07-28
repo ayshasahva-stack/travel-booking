@@ -1,26 +1,21 @@
-import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import Navbar from '../components/Navbar/Navbar'
 import AuthModal from '../components/Auth/AuthModal'
+import { useSelector } from 'react-redux'
 
 const MainLayout = () => {
-
-  const [showModal, setShowModal] = useState(false)
-  const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem("currentUser")))
+const showModal = useSelector((state) => state.ui.showAuthModal);
 
 
   return (
     <div>
       <Navbar
-        setShowModal={setShowModal}
-        currentUser={currentUser}
-        setCurrentUser={setCurrentUser}
+        
       />
 
       {showModal && (
         <AuthModal
-          setShowModal={setShowModal}
-          setCurrentUser={setCurrentUser}
+         
         />
       )}
 

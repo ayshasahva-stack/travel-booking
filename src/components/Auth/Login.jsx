@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { loginThunk } from '../../redux/auth/authThunk'
+import { closeAuthModal } from "../../redux/ui/uiSlice";
 
-const Login = ({ setIsLogin, setShowModal, setCurrentUser }) => {
+const Login = ({ setIsLogin }) => {
 
   const [formData, setFormData] = useState({
     email: "",
@@ -52,14 +53,13 @@ const Login = ({ setIsLogin, setShowModal, setCurrentUser }) => {
       alert("Login Successfully")
 
       localStorage.setItem("currentUser", JSON.stringify(result.payload));
-      setCurrentUser(result.payload);
 
       setFormData({
         email: "",
         password: ""
       });
       setError({})
-      setShowModal(false)
+  dispatch(closeAuthModal());
 
     } else if (loginThunk.rejected.match(result)) {
       if (result.payload === "User not found") {

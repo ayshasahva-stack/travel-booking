@@ -1,21 +1,23 @@
 import { useState } from "react";
-
+import { useDispatch } from "react-redux";
+import { closeAuthModal } from "../../redux/ui/uiSlice";
 import loginBanner from "../../assets/images/login-banner.jpg";
 import Login from "./Login";
 import Register from "./Register";
 
 
-function AuthModal({ setShowModal,setCurrentUser }) {
+function AuthModal() {
 
     const [isLogin, setIsLogin] = useState(true)
 
-    const closeModal = () => {
-        setShowModal(false)
-    }
+    const dispatch=useDispatch()
 
+   const closeModal = () => {
+    dispatch(closeAuthModal());
+}
 
     return (
-        <div className="fixed inset-0 bg-black/75 flex items-center justify-center">
+        <div className="fixed inset-0 z-[9999] bg-black/75 flex items-center justify-center">
 
             <div className="relative bg-white w-[900px] h-[600px] rounded-3xl shadow-2xl overflow-hidden mt-15">
 
@@ -32,8 +34,7 @@ function AuthModal({ setShowModal,setCurrentUser }) {
 
                     {isLogin
                         ? <Login setIsLogin={setIsLogin}
-                            setShowModal={setShowModal} 
-                            setCurrentUser={setCurrentUser}/>
+                          />
                         : <Register setIsLogin={setIsLogin} />
                     }
 

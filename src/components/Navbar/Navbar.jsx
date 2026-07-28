@@ -1,12 +1,19 @@
 import { FaPlaneDeparture, FaBars, FaTimes } from "react-icons/fa";
-import { NavLink, Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from '../../redux/auth/authSlice'
+import { openAuthModal } from "../../redux/ui/uiSlice";
 
-function Navbar({ setShowModal, setCurrentUser, currentUser }) {
+function Navbar() {
 
   const [menuOpen, setMenuOpen] = useState(false)
 
   const navigate = useNavigate()
+
+  const dispatch = useDispatch()
+
+  const currentUser = useSelector((state) => state.auth.user);
 
 
 
@@ -19,13 +26,14 @@ function Navbar({ setShowModal, setCurrentUser, currentUser }) {
   }
 
   const openModal = () => {
-    setShowModal(true)
+      dispatch(openAuthModal());
   }
 
   const handleLogout = () => {
-    localStorage.removeItem("currentUser")
-    setCurrentUser(null)
-  }
+    localStorage.removeItem("currentUser");
+    dispatch(logout());
+    navigate("/");
+  };
 
   const handleBooking = () => {
     if (currentUser) {
