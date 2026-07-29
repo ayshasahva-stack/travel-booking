@@ -71,11 +71,6 @@ function Navbar() {
               `transition-colors duration-500 ${isActive ?
                 "text-blue-600 font-semibold" :
                 "text-gray-700 hover:text-blue-600"}`}>Destinations</NavLink>
-          <NavLink to='/hotels'
-            className={({ isActive }) =>
-              `transition-colors duration-500 ${isActive ?
-                "text-blue-600 font-semibold" :
-                "text-gray-700 hover:text-blue-600"}`}>Hotels</NavLink>
           <NavLink to='/about'
             className={({ isActive }) =>
               `transition-colors duration-500 ${isActive ?
@@ -98,14 +93,6 @@ function Navbar() {
             onClick={openModal}
             className="text-gray-700 hover:text-blue-600 transition-colors duration-300">Log in</button>)}
 
-
-          {/* link for button */}
-          <button
-            onClick={handleBooking}
-            className="hidden md:block bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300"
-          >
-            Book Now
-          </button>
         </div>
 
         {/* Mobile Hamburger */}
