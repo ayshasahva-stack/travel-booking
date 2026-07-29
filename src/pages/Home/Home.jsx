@@ -1,23 +1,28 @@
 import Hero from "../../components/Home/Hero";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchDestinations } from "../../redux/destination/destinationThunk";
 import PopularDestinations from "../../components/Destination/PopularDestination";
+import Loading from "../../components/Common/Loading";
 
 function Home() {
-
   const dispatch = useDispatch();
 
+  const { loading } = useSelector((state) => state.destination);
 
   useEffect(() => {
-  dispatch(fetchDestinations());
-}, [dispatch]);
+    dispatch(fetchDestinations());
+  }, [dispatch]);
 
   return (
-    <div >
+    <div>
+      <Hero />
 
-      <Hero/>
-      <PopularDestinations/>
+      {loading ? (
+        <Loading />
+      ) : (
+        <PopularDestinations />
+      )}
     </div>
   );
 }

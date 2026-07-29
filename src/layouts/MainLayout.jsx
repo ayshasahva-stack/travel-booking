@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom'
 import Navbar from '../components/Navbar/Navbar'
 import AuthModal from '../components/Auth/AuthModal'
 import { useSelector } from 'react-redux'
-
+import Footer from '../components/Footer/Footer'
 const MainLayout = () => {
 const showModal = useSelector((state) => state.ui.showAuthModal);
 
@@ -21,7 +21,7 @@ const showModal = useSelector((state) => state.ui.showAuthModal);
 
       <Outlet />
 
-      <h2>Footer</h2>
+      <Footer/>
 
     </div>
   )
