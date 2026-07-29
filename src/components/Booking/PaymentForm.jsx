@@ -1,10 +1,26 @@
-const PaymentForm = ({ bookingData, setBookingData }) => {
+import Input from "../Common/Input";
+
+const PaymentForm = ({
+  bookingData,
+  setBookingData,
+  errors,
+  setErrors,
+}) => {
   const handleChange = (e) => {
-    setBookingData({
-      ...bookingData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const { name, value } = e.target;
+
+  setBookingData({
+    ...bookingData,
+    [name]: value,
+  });
+
+  if (errors[name]) {
+    setErrors((prev) => ({
+      ...prev,
+      [name]: "",
+    }));
+  }
+};
 
   return (
     <div>
@@ -22,74 +38,47 @@ const PaymentForm = ({ bookingData, setBookingData }) => {
 
       {/* Cardholder Name */}
 
-      <div className="mb-6">
-        <label className="block mb-2 font-medium">
-          Cardholder Name
-        </label>
+      <Input
+  label="Cardholder Name"
+  name="cardName"
+  value={bookingData.cardName}
+  onChange={handleChange}
+  placeholder="John Doe"
+  error={errors.cardName}
+/>
 
-        <input
-          type="text"
-          name="cardName"
-          value={bookingData.cardName}
-          onChange={handleChange}
-          placeholder="John Doe"
-          className="w-full border border-stone-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-teal-500"
-        />
-      </div>
-
-      {/* Card Number */}
-
-      <div className="mb-6">
-        <label className="block mb-2 font-medium">
-          Card Number
-        </label>
-
-        <input
-          type="text"
-          name="cardNumber"
-          value={bookingData.cardNumber}
-          onChange={handleChange}
-          maxLength={16}
-          placeholder="1234567812345678"
-          className="w-full border border-stone-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-teal-500"
-        />
-      </div>
+<Input
+  label="Card Number"
+  name="cardNumber"
+  value={bookingData.cardNumber}
+  onChange={handleChange}
+  placeholder="1234567812345678"
+  maxLength={16}
+  error={errors.cardNumber}
+/>
 
       {/* Expiry + CVV */}
 
       <div className="grid md:grid-cols-2 gap-5">
+       <Input
+  label="Expiry Date"
+  name="expiry"
+  value={bookingData.expiry}
+  onChange={handleChange}
+  placeholder="MM/YY"
+  error={errors.expiry}
+/>
 
-        <div>
-          <label className="block mb-2 font-medium">
-            Expiry Date
-          </label>
-
-          <input
-            type="text"
-            name="expiry"
-            value={bookingData.expiry}
-            onChange={handleChange}
-            placeholder="MM/YY"
-            className="w-full border border-stone-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-teal-500"
-          />
-        </div>
-
-        <div>
-          <label className="block mb-2 font-medium">
-            CVV
-          </label>
-
-          <input
-            type="password"
-            name="cvv"
-            value={bookingData.cvv}
-            onChange={handleChange}
-            maxLength={4}
-            placeholder="123"
-            className="w-full border border-stone-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-teal-500"
-          />
-        </div>
-
+<Input
+  label="CVV"
+  type="password"
+  name="cvv"
+  value={bookingData.cvv}
+  onChange={handleChange}
+  placeholder="123"
+  maxLength={4}
+  error={errors.cvv}
+/>
       </div>
     </div>
   );

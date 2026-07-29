@@ -3,7 +3,7 @@ import heroImage from '../../assets/images/hero.jpg'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 import { openAuthModal } from "../../redux/ui/uiSlice";
-
+import Button from '../Common/Button';
 
 const Hero = () => {
 
@@ -45,17 +45,11 @@ const { user } = useSelector((state) => state.auth);
           travel experiences — all in one place.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row gap-4">
-          <button
+          <Button
             className="bg-yellow-600 hover:bg-yellow-700 text-white px-8 py-3 rounded-lg font-semibold transition duration-300"
             onClick={handleExplore}>
             Explore Destinations
-          </button>
-          <button
-           onClick={handleBookNow}
-            className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-yellow-600 transition duration-300">
-            Book Now
-          </button>
-
+          </Button>
         </div>
       </div>
     </section>

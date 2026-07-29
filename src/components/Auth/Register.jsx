@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { registerThunk } from '../../redux/auth/authThunk'
 import { useDispatch } from 'react-redux'
+import Button from '../Common/Button'
+import Input from "../Common/Input";
 
 const Register = ({ setIsLogin }) => {
 
@@ -80,47 +82,50 @@ const Register = ({ setIsLogin }) => {
   return (
     <div className="flex-1 bg-white p-12">
       <h1 className='text-teal-700 font-bold text-4xl'>TravelEase</h1>
-      <h2 className='text-2xl mt-4 '>Create Your Account</h2>
+      <h2 className='text-2xl mt-2 '>Create Your Account</h2>
       <p className='mt-2 text-gray-600 text-m'>Start exploring the world today</p>
 
-      <div className='flex flex-col justify-center my-6'>
+      <div className='flex flex-col justify-center mt-2'>
 
         <form onSubmit={handleRegister}>
 
-          <label htmlFor="">Username</label>
-          <input
-            type="text"
-            placeholder='Enter your name'
-            name='username'
+          <Input
+            label="Username"
+            name="username"
             value={formData.username}
             onChange={handleChange}
-            className="w-full border border-gray-400 rounded-xl px-4 py-3 focus:outline-none  focus:border-teal-600 mt-2 mb-2" />
+            placeholder="Enter your name"
+            error={errors.username}
+          />
 
-          {errors.username && (<p className='text-red-700 text-sm mt-1'>{errors.username}</p>)}
 
-          <label htmlFor="">Email</label>
-          <input
+          <Input
+            label="Email"
             type="email"
-            placeholder='you@example.com'
-            name='email'
+            name="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full border border-gray-400 rounded-xl px-4 py-3 focus:outline-none  focus:border-teal-600 mt-2 mb-2" />
-          {errors.email && (<p className='text-red-700 text-sm mt-1'>{errors.email}</p>)}
+            placeholder="you@example.com"
+            error={errors.email}
+          />
 
-          <label htmlFor="">Password</label>
-          <input
+          <Input
+            label="Password"
             type="password"
-            placeholder='Enter your password'
-            name='password'
+            name="password"
             value={formData.password}
             onChange={handleChange}
-            className="w-full border border-gray-400 rounded-xl px-4 py-3 focus:outline-none  focus:border-teal-600 mt-2 mb-4" />
-          {errors.password && (<p className='text-red-700 text-sm mt-1'>{errors.password}</p>)}
+            placeholder="Enter your password"
+            error={errors.password}
+          />
 
 
-          <button className=" w-full bg-teal-600 text-white py-3 mt-2 rounded-xl hover:bg-teal-800 transition duration-300"> Create Account →</button>
-          <div className='flex flex-row mt-2 justify-center'>
+          <Button
+            type="submit"
+            className="w-full mt-2"
+          >
+            Create Account →
+          </Button>          <div className='flex flex-row mt-2 justify-center'>
             <p >Already have an account?</p>
             <button type='button'
               className='text-teal-600 hover:underline'

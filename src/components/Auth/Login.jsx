@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { loginThunk } from '../../redux/auth/authThunk'
 import { closeAuthModal } from "../../redux/ui/uiSlice";
-
+import Button from '../Common/Button';
+import Input from '../Common/Input';
 const Login = ({ setIsLogin }) => {
 
   const [formData, setFormData] = useState({
@@ -59,7 +60,7 @@ const Login = ({ setIsLogin }) => {
         password: ""
       });
       setError({})
-  dispatch(closeAuthModal());
+      dispatch(closeAuthModal());
 
     } else if (loginThunk.rejected.match(result)) {
       if (result.payload === "User not found") {
@@ -94,44 +95,40 @@ const Login = ({ setIsLogin }) => {
         {/* email */}
 
         <div className="mt-6">
-          <label className="block text-gray-700 font-medium mb-4">Email</label>
-          <input
+
+          <Input
+            label="Email"
             type="email"
-            placeholder="Enter your email"
-            name='email'
+            name="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full border border-gray-400 rounded-xl px-4 py-3 focus:outline-none  focus:border-teal-600" />
+            placeholder="Enter your email"
+            error={error.email}
+          />
 
-          {error.email && (<p className='text-red-700 text-sm mt-1'>{error.email}</p>)}
-
-        </div>
-
-        {/* password */}
-
-        <div className="mt-4">
-          <label className="block text-gray-700 font-medium mb-4">Password</label>
-          <input
+          <Input
+            label="Password"
             type="password"
-            placeholder="Enter your password"
-            name='password'
+            name="password"
             value={formData.password}
             onChange={handleChange}
-            className="w-full border border-gray-400 rounded-xl px-4 py-3 focus:outline-none  focus:border-teal-600 " />
-
-          {error.password && (<p className='text-red-700 text-sm mt-1'>{error.password}</p>)}
+            placeholder="Enter your password"
+            error={error.password}
+          />
         </div>
+
 
 
         {/* <p>Email: {email}</p>
       <p>Password: {password}</p> */}
 
 
-        <button
-          type='submit'
-          className=" w-full bg-teal-600 text-white py-3 mt-8 rounded-xl hover:bg-teal-800 transition duration-300">
-          Sign In →
-        </button>
+        <Button
+          type="submit"
+          className="w-full bg-teal-700 text-white hover:bg-teal-600 mt-6"
+        >
+          Sign In
+        </Button>
 
         <div className="mt-8 flex justify-center items-center gap-2">
 

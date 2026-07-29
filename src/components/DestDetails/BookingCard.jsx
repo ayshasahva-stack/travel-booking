@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { openAuthModal } from "../../redux/ui/uiSlice";
+import Button from "../Common/Button";
 
 const BookingCard = ({ destination }) => {
   const navigate = useNavigate();
@@ -75,12 +76,12 @@ const BookingCard = ({ destination }) => {
         </div>
 
         {/* Button */}
-        <button
+        <Button
           onClick={handleBooking}
           className="w-full mt-8 bg-teal-700 text-white py-4 rounded-2xl font-semibold text-lg hover:bg-teal-600 transition"
         >
           Book Now
-        </button>
+        </Button>
 
         {/* Footer */}
         <p className="text-center text-sm text-stone-500 mt-6">

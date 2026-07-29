@@ -10,10 +10,16 @@ import TravelerForm from "../../components/Booking/TravelerForm";
 import PaymentForm from "../../components/Booking/PaymentForm";
 import BookingSuccess from "../../components/Booking/BookingSuccess";
 import ReviewConfirm from "../../components/Booking/ReviewConfirm";
-
-import { fetchDestinations } from "../../redux/destination/destinationThunk";
 import Loading from "../../components/Common/Loading";
 import EmptyState from "../../components/Common/EmptyState";
+import Button from "../../components/Common/Button";
+
+import { validateTripDetails, validateTravelerDetails,validatePaymentDetails } from "../../utils/BookingValidation";
+
+
+
+import { fetchDestinations } from "../../redux/destination/destinationThunk";
+
 
 const Booking = () => {
 
@@ -30,6 +36,7 @@ const Booking = () => {
   );
   const [step, setStep] = useState(0);
   const [bookingCompleted, setBookingCompleted] = useState(false);
+  const [errors, setErrors] = useState({});
 
   const [bookingData, setBookingData] = useState({
     departDate: "",
@@ -50,21 +57,43 @@ const Booking = () => {
     cvv: "",
   });
   const nextStep = () => {
-    if (step < 3) {
-      setStep(step + 1);
-    }
-  };
+  let newErrors = {};
 
+  switch (step) {
+    case 0:
+      newErrors = validateTripDetails(bookingData);
+      break;
+
+    case 1:
+      newErrors = validateTravelerDetails(bookingData);
+      break;
+
+    case 2:
+      newErrors = validatePaymentDetails(bookingData);
+      break;
+
+    default:
+      break;
+  }
+
+  if (Object.keys(newErrors).length > 0) {
+    setErrors(newErrors);
+    return;
+  }
+
+  setErrors({});
+  setStep((prev) => prev + 1);
+};
   const prevStep = () => {
     if (step > 0) {
       setStep(step - 1);
     }
   };
   useEffect(() => {
-  if (destinations.length === 0) {
-    dispatch(fetchDestinations());
-  }
-}, [dispatch, destinations]);
+    if (destinations.length === 0) {
+      dispatch(fetchDestinations());
+    }
+  }, [dispatch, destinations]);
 
   if (loading) {
     return <Loading />;
@@ -88,11 +117,11 @@ const Booking = () => {
 
         <div className="mb-10">
           <Link
-  to={`/destinations/${destination.id}`}
-  className="text-teal-700 hover:underline text-sm"
->
-  ← Back to {destination.name}
-</Link>
+            to={`/destinations/${destination.id}`}
+            className="text-teal-700 hover:underline text-sm"
+          >
+            ← Back to {destination.name}
+          </Link>
           <h1 className="text-4xl font-bold text-stone-900">
             Book Your Trip
           </h1>
@@ -114,6 +143,9 @@ const Booking = () => {
               <TripDetails
                 bookingData={bookingData}
                 setBookingData={setBookingData}
+                errors={errors}
+                setErrors={setErrors}
+
               />
             )}
 
@@ -121,14 +153,18 @@ const Booking = () => {
               <TravelerForm
                 bookingData={bookingData}
                 setBookingData={setBookingData}
+                errors={errors}
+                setErrors={setErrors}
               />
             )}
 
             {step === 2 && (
-              <PaymentForm
-                bookingData={bookingData}
-                setBookingData={setBookingData}
-              />
+             <PaymentForm
+  bookingData={bookingData}
+  setBookingData={setBookingData}
+  errors={errors}
+  setErrors={setErrors}
+/>
             )}
 
             {step === 3 && (
@@ -137,34 +173,34 @@ const Booking = () => {
                 bookingData={bookingData}
               />
             )}
- <div className="flex justify-between mt-10">
-          {step > 0 ? (
-            <button
-              onClick={prevStep}
-              className="px-6 py-3 border border-stone-300 rounded-xl font-medium hover:bg-stone-100 transition"
-            >
-              ← Back
-            </button>
-          ) : (
-            <div />
-          )}
+            <div className="flex justify-between mt-10">
+              {step > 0 ? (
+                <button
+                  onClick={prevStep}
+                  className="px-6 py-3 border border-stone-300 rounded-xl font-medium hover:bg-stone-100 transition"
+                >
+                  ← Back
+                </button>
+              ) : (
+                <div />
+              )}
 
-          {step < 3 ? (
-            <button
-              onClick={nextStep}
-              className="px-8 py-3 bg-teal-700 text-white rounded-xl font-semibold hover:bg-teal-600 transition"
-            >
-              Continue →
-            </button>
-          ) : (
-            <button
-              onClick={() => setBookingCompleted(true)}
-              className="px-8 py-3 bg-amber-400 text-stone-900 rounded-xl font-semibold hover:bg-amber-300 transition"
-            >
-              Confirm Booking 🎉
-            </button>
-          )}
-        </div>
+              {step < 3 ? (
+                <Button
+                  onClick={nextStep}
+                  className="bg-teal-700 text-white hover:bg-teal-600"
+                >
+                  Continue →
+                </Button>
+              ) : (
+                <Button
+                  onClick={() => setBookingCompleted(true)}
+                  className="bg-amber-400 text-stone-900 hover:bg-amber-300"
+                >
+                  Confirm Booking 🎉
+                </Button>
+              )}
+            </div>
           </div>
 
           {/* Right */}
@@ -175,7 +211,7 @@ const Booking = () => {
           />
 
         </div>
-       
+
       </div>
     </section>
   );
