@@ -22,15 +22,26 @@ const TripDetails = ({
   bookingData,
   setBookingData,
   errors,
-   setErrors,
+  setErrors,
 }) => {
-const handleChange = (e) => {
+  const handleChange = (e) => {
   const { name, value } = e.target;
 
-  setBookingData({
+  let updatedData = {
     ...bookingData,
     [name]: value,
-  });
+  };
+
+  // If departure date changes and return date becomes invalid
+  if (
+    name === "departDate" &&
+    bookingData.returnDate &&
+    bookingData.returnDate <= value
+  ) {
+    updatedData.returnDate = "";
+  }
+
+  setBookingData(updatedData);
 
   if (errors[name]) {
     setErrors((prev) => ({
@@ -39,12 +50,12 @@ const handleChange = (e) => {
     }));
   }
 };
-const handleRoom = (room) => {
-     setBookingData(
-        { ...bookingData, roomType: room, }
-    );
- };
-
+const handleRoom = (roomType) => {
+  setBookingData((prev) => ({
+    ...prev,
+    roomType,
+  }));
+};
   return (
     <div>
       <h2 className="text-2xl font-bold text-stone-900 mb-8">
@@ -54,25 +65,25 @@ const handleRoom = (room) => {
       {/* Departure Date */}
 
       <Input
-  label="Departure Date"
-  type="date"
-  name="departDate"
-  value={bookingData.departDate}
-  onChange={handleChange}
-  min={new Date().toISOString().split("T")[0]}
-  error={errors.departDate}
-/>
+        label="Departure Date"
+        type="date"
+        name="departDate"
+        value={bookingData.departDate}
+        onChange={handleChange}
+        min={new Date().toISOString().split("T")[0]}
+        error={errors.departDate}
+      />
 
       {/* Return Date */}
-<Input
-  label="Return Date"
-  type="date"
-  name="returnDate"
-  value={bookingData.returnDate}
-  onChange={handleChange}
-  min={bookingData.departDate}
-  error={errors.returnDate}
-/>
+      <Input
+        label="Return Date"
+        type="date"
+        name="returnDate"
+        value={bookingData.returnDate}
+        onChange={handleChange}
+        min={bookingData.departDate}
+        error={errors.returnDate}
+      />
 
       {/* Room Type */}
 
@@ -86,11 +97,10 @@ const handleRoom = (room) => {
             key={room.id}
             type="button"
             onClick={() => handleRoom(room.id)}
-            className={`border-2 rounded-2xl p-5 transition ${
-              bookingData.roomType === room.id
+            className={`border-2 rounded-2xl p-5 transition ${bookingData.roomType === room.id
                 ? "border-teal-600 bg-teal-50"
                 : "border-stone-200 hover:border-teal-300"
-            }`}
+              }`}
           >
             <div className="text-4xl mb-3">
               {room.icon}
@@ -102,7 +112,7 @@ const handleRoom = (room) => {
           </button>
         ))}
       </div>
-     
+
     </div>
   );
 };

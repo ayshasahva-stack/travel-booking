@@ -8,8 +8,10 @@ import Booking from "../pages/Booking/Booking";
 import About from "../pages/About/About";
 import Destinations from "../pages/Destinations/Destinations";
 import Notfound from "../pages/Notfound/Notfound";
+import MyBooking from "../pages/Mybooking/MyBooking";
 import ProtectedRoute from "./ProtectedRoute";
 import DestinationDetails from "../pages/DestinationDetails/DestinationDetails";
+import BookingSuccess from "../components/Booking/BookingSuccess";
 
 
 // import Register from "../components/Auth/Register";
@@ -30,11 +32,13 @@ const AppRoutes = () => {
                     <Route element={<ProtectedRoute />}>
                         <Route path="/booking" element={<Booking />} />
                         <Route path="/booking/:id" element={<Booking />} />
+                         <Route path="/booking-success" element={<BookingSuccess />} />
+                         <Route path="/my-bookings" element={<MyBookings />} />
                     </Route>
-                    
+
                     <Route path="/about" element={<About />} />
                     <Route path="/contact" element={<Contact />} />
-                    <Route path="/destinations/:id" element={<DestinationDetails />}/>
+                    <Route path="/destinations/:id" element={<DestinationDetails />} />
                 </Route>
 
                 <Route path="/*" element={<Notfound />} />

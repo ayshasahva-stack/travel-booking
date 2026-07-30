@@ -51,15 +51,20 @@ export const validatePaymentDetails = (bookingData) => {
     errors.cardName = "Cardholder name is required.";
   }
 
-  if (!bookingData.cardNumber.trim()) {
+  const cardNumber = bookingData.cardNumber.replace(/\s/g, "");
+
+  if (!cardNumber) {
     errors.cardNumber = "Card number is required.";
-  } else if (!/^\d{16}$/.test(bookingData.cardNumber)) {
+  } else if (!/^\d{16}$/.test(cardNumber)) {
     errors.cardNumber = "Card number must be 16 digits.";
   }
+ const expiryRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
 
-  if (!bookingData.expiry.trim()) {
-    errors.expiry = "Expiry date is required.";
-  }
+if (!bookingData.expiry.trim()) {
+  errors.expiry = "Expiry date is required.";
+} else if (!expiryRegex.test(bookingData.expiry)) {
+  errors.expiry = "Enter a valid expiry date (MM/YY).";
+}
 
   if (!bookingData.cvv.trim()) {
     errors.cvv = "CVV is required.";

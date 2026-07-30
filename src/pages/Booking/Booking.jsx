@@ -1,20 +1,21 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 
 import ProgressBar from "../../components/Booking/ProgressBar";
 import BookingSummary from "../../components/Booking/BookingSummary";
 import TripDetails from "../../components/Booking/TripDetails";
 import TravelerForm from "../../components/Booking/TravelerForm";
 import PaymentForm from "../../components/Booking/PaymentForm";
-import BookingSuccess from "../../components/Booking/BookingSuccess";
+// import BookingSuccess from "../../components/Booking/BookingSuccess";
 import ReviewConfirm from "../../components/Booking/ReviewConfirm";
 import Loading from "../../components/Common/Loading";
 import EmptyState from "../../components/Common/EmptyState";
 import Button from "../../components/Common/Button";
 
-import { validateTripDetails, validateTravelerDetails,validatePaymentDetails } from "../../utils/BookingValidation";
+import { validateTripDetails, validateTravelerDetails, validatePaymentDetails } from "../../utils/BookingValidation";
+import { createBookingThunk } from "../../redux/booking/bookingThunk";
 
 
 
@@ -26,7 +27,7 @@ const Booking = () => {
   const { id } = useParams();
 
   const dispatch = useDispatch();
-
+const navigate = useNavigate();
   const { destinations, loading } = useSelector(
     (state) => state.destination
   );
@@ -35,8 +36,8 @@ const Booking = () => {
     (item) => String(item.id) === id
   );
   const [step, setStep] = useState(0);
-  const [bookingCompleted, setBookingCompleted] = useState(false);
   const [errors, setErrors] = useState({});
+  
 
   const [bookingData, setBookingData] = useState({
     departDate: "",
@@ -57,38 +58,62 @@ const Booking = () => {
     cvv: "",
   });
   const nextStep = () => {
-  let newErrors = {};
+    let newErrors = {};
 
-  switch (step) {
-    case 0:
-      newErrors = validateTripDetails(bookingData);
-      break;
+    switch (step) {
+      case 0:
+        newErrors = validateTripDetails(bookingData);
+        break;
 
-    case 1:
-      newErrors = validateTravelerDetails(bookingData);
-      break;
+      case 1:
+        newErrors = validateTravelerDetails(bookingData);
+        break;
 
-    case 2:
-      newErrors = validatePaymentDetails(bookingData);
-      break;
+      case 2:
+        newErrors = validatePaymentDetails(bookingData);
+        break;
 
-    default:
-      break;
-  }
+      default:
+        break;
+    }
 
-  if (Object.keys(newErrors).length > 0) {
-    setErrors(newErrors);
-    return;
-  }
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
 
-  setErrors({});
-  setStep((prev) => prev + 1);
-};
+    setErrors({});
+    setStep((prev) => prev + 1);
+  };
   const prevStep = () => {
     if (step > 0) {
       setStep(step - 1);
     }
   };
+ const handleConfirmBooking = async () => {
+  try {
+    const booking = {
+      ...bookingData,
+      destinationId: destination.id,
+      destinationName: destination.name,
+      country: destination.country,
+      image: destination.image,
+      status: "Confirmed",
+      bookedAt: new Date().toISOString(),
+    };
+
+    await dispatch(createBookingThunk(booking)).unwrap();
+
+    navigate("/booking-success", {
+      state: {
+        destination,
+        bookingData,
+      },
+    });
+  } catch (error) {
+    console.error("Booking failed:", error);
+  }
+};
   useEffect(() => {
     if (destinations.length === 0) {
       dispatch(fetchDestinations());
@@ -103,14 +128,8 @@ const Booking = () => {
     return <EmptyState message="Destination not found" />;
   }
 
-  if (bookingCompleted) {
-    return (
-      <BookingSuccess
-        destination={destination}
-        bookingData={bookingData}
-      />
-    );
-  }
+
+
   return (
     <section className="bg-stone-50 min-h-screen pt-28 pb-20">
       <div className="max-w-7xl mx-auto px-6">
@@ -159,12 +178,12 @@ const Booking = () => {
             )}
 
             {step === 2 && (
-             <PaymentForm
-  bookingData={bookingData}
-  setBookingData={setBookingData}
-  errors={errors}
-  setErrors={setErrors}
-/>
+              <PaymentForm
+                bookingData={bookingData}
+                setBookingData={setBookingData}
+                errors={errors}
+                setErrors={setErrors}
+              />
             )}
 
             {step === 3 && (
@@ -194,7 +213,7 @@ const Booking = () => {
                 </Button>
               ) : (
                 <Button
-                  onClick={() => setBookingCompleted(true)}
+                  onClick={handleConfirmBooking}
                   className="bg-amber-400 text-stone-900 hover:bg-amber-300"
                 >
                   Confirm Booking 🎉

@@ -6,8 +6,13 @@ const TravelerForm = ({
   errors,
   setErrors,
 }) => {
-    const handleChange = (e) => {
-  const { name, value } = e.target;
+  const handleChange = (e) => {
+  let { name, value } = e.target;
+
+  // Phone Number
+  if (name === "phone") {
+    value = value.replace(/\D/g, "").slice(0, 10);
+  }
 
   setBookingData({
     ...bookingData,
@@ -21,82 +26,82 @@ const TravelerForm = ({
     }));
   }
 };
-    return (
-        <div>
-            <h2 className="text-2xl font-bold text-stone-900 mb-8">
-                Traveler Details
-            </h2>
+  return (
+    <div>
+      <h2 className="text-2xl font-bold text-stone-900 mb-8">
+        Traveler Details
+      </h2>
 
-            {/* Name */}
+      {/* Name */}
 
-            <div className="grid md:grid-cols-2 gap-5">
-                <Input
-  label="First Name"
-  name="firstName"
-  value={bookingData.firstName}
-  onChange={handleChange}
-  placeholder="John"
-  error={errors.firstName}
-/>
+      <div className="grid md:grid-cols-2 gap-5">
+        <Input
+          label="First Name"
+          name="firstName"
+          value={bookingData.firstName}
+          onChange={handleChange}
+          placeholder="John"
+          error={errors.firstName}
+        />
 
-<Input
-  label="Last Name"
-  name="lastName"
-  value={bookingData.lastName}
-  onChange={handleChange}
-  placeholder="Doe"
-  error={errors.lastName}
-/>
-            </div>
+        <Input
+          label="Last Name"
+          name="lastName"
+          value={bookingData.lastName}
+          onChange={handleChange}
+          placeholder="Doe"
+          error={errors.lastName}
+        />
+      </div>
 
-            {/* Phone */}
+      {/* Phone */}
 
-           <Input
-  label="Phone Number"
-  type="tel"
-  name="phone"
-  value={bookingData.phone}
-  onChange={handleChange}
-  placeholder="+91 9876543210"
-  error={errors.phone}
-/>
+      <Input
+        label="Phone Number"
+        type="tel"
+        name="phone"
+        value={bookingData.phone}
+        onChange={handleChange}
+        placeholder="+91 9876543210"
+        error={errors.phone}
+      />
 
 
-            <div className="grid md:grid-cols-2 gap-5">
-               <Input
-  label="Adults"
-  type="number"
-  min={1}
-  name="adults"
-  value={bookingData.adults}
-  onChange={handleChange}
-  error={errors.adults}
-/>
+      <div className="grid md:grid-cols-2 gap-5">
+        <Input
+          label="Adults"
+          type="number"
+          min={1}
+          name="adults"
+          value={bookingData.adults}
+          onChange={handleChange}
+          error={errors.adults}
+        />
 
-                <Input
-                    label="Children"
-                    type="number"
-                    name="children"
-                    value={bookingData.children}
-                    onChange={handleChange}
-                />
-            </div>
+        <Input
+          label="Children"
+          type="number"
+          name="children"
+          value={bookingData.children}
+          onChange={handleChange}
+        />
+      </div>
 
-            {/* Special Requests */}
+      {/* Special Requests */}
 
-            <div className="mt-5">
+      <div className="mt-5">
 
-                <Input
-                    label="Special Requests"
-                    as="textarea"
-                    name="specialRequests"
-                    value={bookingData.specialRequests}
-                    onChange={handleChange}
-                    placeholder="Any dietary requirements, accessibility needs, or special occasions..."
-                />
-            </div>
-        </div>
-    );
+        <Input
+          label="Special Requests"
+          as="textarea"
+          name="specialRequests"
+          value={bookingData.specialRequests}
+          onChange={handleChange}
+          placeholder="Any dietary requirements, accessibility needs, or special occasions..."
+        />
+      </div>
+    </div>
+  );
 };
 
 export default TravelerForm;

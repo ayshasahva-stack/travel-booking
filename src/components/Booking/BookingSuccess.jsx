@@ -1,6 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, Navigate } from "react-router-dom";
 import { FaCheckCircle } from "react-icons/fa";
-const BookingSuccess = ({ destination, bookingData }) => {
+const BookingSuccess = () => {
+    const location = useLocation();
+    const { destination, bookingData } = location.state || {};
+    if (!destination || !bookingData) {
+        return <Navigate to="/destinations" replace />;
+    }
     const totalPrice =
         destination.price *
         (Number(bookingData.adults) + Number(bookingData.children) || 1);
