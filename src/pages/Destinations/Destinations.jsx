@@ -67,7 +67,7 @@ const Destinations = () => {
       <div className="max-w-7xl mx-auto px-6">
       
 
-        <h1 className="text-5xl font-bold text-center">
+        <h1 className="text-5xl font-bold text-center mt-10">
           Explore Destinations
         </h1>
 

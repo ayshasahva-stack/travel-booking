@@ -1,57 +1,156 @@
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTwitter,
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaEnvelope,
+} from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer id="contact" className="bg-stone-900 text-stone-300 pt-16 pb-8 px-6 md:px-12">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+    <footer className="bg-stone-900 text-stone-300 pt-16 pb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
           {/* Brand */}
-          <div className="md:col-span-2">
-            <div className="text-3xl font-bold text-white mb-3">
-              Wandrly<span className="text-amber-400">.</span>
-            </div>
-            <p className="text-stone-400 leading-relaxed max-w-sm">
-              We craft journeys that go beyond the ordinary. Every trip is a story
-              waiting to be written — and we help you write it beautifully.
+          <div className="lg:col-span-2">
+            <h2 className="text-3xl font-bold text-amber-400 ">
+              TravelEase
+            </h2>
+
+            <p className="mt-5 text-stone-400 leading-8 max-w-md">
+              TravelEase helps you discover breathtaking destinations,
+              book unforgettable trips, and create memories that last a
+              lifetime. Your next adventure starts here.
             </p>
+
+            <div className="flex gap-4 mt-6">
+              <a
+                href="#"
+                className="w-10 h-10 rounded-full bg-stone-800 hover:bg-teal-700 transition flex items-center justify-center"
+              >
+                <FaFacebookF />
+              </a>
+
+              <a
+                href="#"
+                className="w-10 h-10 rounded-full bg-stone-800 hover:bg-teal-700 transition flex items-center justify-center"
+              >
+                <FaInstagram />
+              </a>
+
+              <a
+                href="#"
+                className="w-10 h-10 rounded-full bg-stone-800 hover:bg-teal-700 transition flex items-center justify-center"
+              >
+                <FaTwitter />
+              </a>
+
+              <a
+                href="#"
+                className="w-10 h-10 rounded-full bg-stone-800 hover:bg-teal-700 transition flex items-center justify-center"
+              >
+                <FaLinkedinIn />
+              </a>
+            </div>
           </div>
 
-          {/* Links */}
+          {/* Quick Links */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Explore</h4>
-            <ul className="space-y-2 text-sm">
-              <li><Link to="/destinations" className="hover:text-amber-400 transition-colors">All Destinations</Link></li>
-              <li><a href="#" className="hover:text-amber-400 transition-colors">Beach Escapes</a></li>
-              <li><a href="#" className="hover:text-amber-400 transition-colors">Adventure Trips</a></li>
-              <li><a href="#" className="hover:text-amber-400 transition-colors">Cultural Journeys</a></li>
+            <h3 className="text-white text-xl font-semibold mb-5">
+              Quick Links
+            </h3>
+
+            <ul className="space-y-3">
+              <li>
+                <Link to="/" className="hover:text-amber-400 transition">
+                  Home
+                </Link>
+              </li>
+
+              <li>
+                <Link to="/destinations" className="hover:text-amber-400 transition">
+                  Destinations
+                </Link>
+              </li>
+
+              <li>
+                <Link to="/about" className="hover:text-amber-400 transition">
+                  About Us
+                </Link>
+              </li>
+
+              <li>
+                <Link to="/contact" className="hover:text-amber-400 transition">
+                  Contact
+                </Link>
+              </li>
+
+              <li>
+                <Link to="/my-bookings" className="hover:text-amber-400 transition">
+                  My Bookings
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Contact</h4>
-            <ul className="space-y-2 text-sm">
-              <li>hello@wandrly.co</li>
-              <li>+1 (800) 926-3759</li>
-              <li className="pt-2">
-                <div className="flex gap-3">
-                  {["Instagram", "Twitter", "LinkedIn"].map((s) => (
-                    <a key={s} href="#" className="text-xs px-2 py-1 border border-stone-600 rounded hover:border-amber-400 hover:text-amber-400 transition-colors">{s}</a>
-                  ))}
-                </div>
-              </li>
-            </ul>
+            <h3 className="text-white text-xl font-semibold mb-5">
+              Contact Us
+            </h3>
+
+            <div className="space-y-4">
+
+              <div className="flex items-start gap-3">
+                <FaMapMarkerAlt className="text-teal-500 mt-1" />
+                <span>Kozhikode, Kerala, India</span>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <FaPhoneAlt className="text-teal-500" />
+                <span>+91 98765 43210</span>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <FaEnvelope className="text-teal-500" />
+                <span>support@travelease.com</span>
+              </div>
+
+            </div>
           </div>
+
         </div>
 
-        <div className="border-t border-stone-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-stone-500">
-          <span>© 2025 Wandrly. All rights reserved.</span>
+        {/* Bottom */}
+        <div className="border-t border-stone-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+
+          <p className="text-stone-500 text-center md:text-left">
+            © 2026 TravelEase. All Rights Reserved.
+          </p>
+
           <div className="flex gap-6">
-            <a href="#" className="hover:text-stone-300 transition-colors">Privacy</a>
-            <a href="#" className="hover:text-stone-300 transition-colors">Terms</a>
-            <a href="#" className="hover:text-stone-300 transition-colors">Cookies</a>
+            <Link
+              to="/privacy"
+              className="hover:text-amber-400 transition"
+            >
+              Privacy Policy
+            </Link>
+
+            <Link
+              to="/terms"
+              className="hover:text-amber-400 transition"
+            >
+              Terms & Conditions
+            </Link>
           </div>
+
         </div>
+
       </div>
     </footer>
   );

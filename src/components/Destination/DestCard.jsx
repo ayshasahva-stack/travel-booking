@@ -75,7 +75,7 @@ const DestCard = ({ destination }) => {
 
         <div className="flex justify-between items-center mt-6">
 
-          <button className="text-blue-600 font-semibold hover:underline">
+          <button className="text-amber-400 font-semibold hover:underline">
             View Details →
           </button>
 

@@ -44,11 +44,14 @@ const PopularDestinations = () => {
                 {/* Cards */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
-                    {destinations.slice(0, 4).map((destination) => (
+                    {destinations.slice(0, 4).map((destination,index) => (
 
                         <div
                             onClick={() => navigate(`/destinations/${destination.id}`)}
                             key={destination.id}
+                             data-aos="fade-up"
+    data-aos-delay={index * 150}
+    className="relative text-center group"
                             className="relative h-[500px] rounded-3xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"
                         >
 

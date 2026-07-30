@@ -1,9 +1,10 @@
 import { FaPlaneDeparture, FaBars, FaTimes } from "react-icons/fa";
-import { NavLink, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from '../../redux/auth/authSlice'
 import { openAuthModal } from "../../redux/ui/uiSlice";
+
 
 function Navbar() {
 
@@ -14,6 +15,10 @@ function Navbar() {
   const dispatch = useDispatch()
 
   const currentUser = useSelector((state) => state.auth.user);
+  const location = useLocation();
+  const [scrolled, setScrolled] = useState(false);
+
+  const isHomePage = location.pathname === "/";
 
 
 
@@ -24,9 +29,20 @@ function Navbar() {
   const closeMenu = () => {
     setMenuOpen(false)
   }
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const openModal = () => {
-      dispatch(openAuthModal());
+    dispatch(openAuthModal());
   }
 
   const handleLogout = () => {
@@ -39,23 +55,28 @@ function Navbar() {
     if (currentUser) {
       navigate("/booking");
     } else {
-      setShowModal(true);
+      dispatch(openAuthModal());
     }
   };
 
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isHomePage && !scrolled
+          ? "bg-transparent"
+          : "bg-white shadow-md"
+        }`}
+    >
 
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
 
         {/* Logo */}
         < div className="flex items-center gap-2">
-          <FaPlaneDeparture className="text-blue-600 text-2xl" />
-          <h1 className="text-2xl font-bold text-blue-600">
+          <FaPlaneDeparture className="text-teal-600 text-2xl" />
+          <h2 className="text-3xl font-bold text-amber-400">
             TravelEase
-          </h1>
+          </h2>
         </div>
 
 
@@ -64,34 +85,47 @@ function Navbar() {
           <NavLink to='/'
             className={({ isActive }) =>
               `transition-colors duration-500 ${isActive ?
-                "text-blue-600 font-semibold" :
-                "text-gray-700 hover:text-blue-600"}`}>Home</NavLink>
+                "text-yellow-500 font-semibold" :
+                "text-gray-1000 hover:text-yellow-400"}`}>Home</NavLink>
           <NavLink to='/destinations'
             className={({ isActive }) =>
               `transition-colors duration-500 ${isActive ?
-                "text-blue-600 font-semibold" :
-                "text-gray-700 hover:text-blue-600"}`}>Destinations</NavLink>
+                "text-yellow-500 font-semibold" :
+                "text-gray-1000 hover:text-yellow-400"}`}>Destinations</NavLink>
           <NavLink to='/about'
             className={({ isActive }) =>
               `transition-colors duration-500 ${isActive ?
-                "text-blue-600 font-semibold" :
-                "text-gray-700 hover:text-blue-600"}`}>About</NavLink>
+                "text-yellow-500 font-semibold" :
+                "text-gray-1000 hover:text-yellow-400"}`}>About</NavLink>
           <NavLink to='/contact'
             className={({ isActive }) =>
               `transition-colors duration-500 ${isActive ?
-                "text-blue-600 font-semibold" :
-                "text-gray-700 hover:text-blue-600"}`}>Contact</NavLink>
+                "text-yellow-500 font-semibold" :
+                "text-gray-1000 hover:text-yellow-400"}`}>Contact</NavLink>
+          {currentUser && (
+            <NavLink
+              to="/my-bookings"
+              className={({ isActive }) =>
+                `transition-colors duration-500 ${isActive
+                  ? "text-yellow-500 font-semibold"
+                  : "text-gray-1000 hover:text-yellow-400"
+                }`
+              }
+            >
+              My Booking
+            </NavLink>
+          )}
 
           {/* <button
             onClick={openModal}
             className="text-gray-700 hover:text-blue-600 transition-colors duration-300">Log in</button> */}
 
-          {currentUser ? (<button onClick={handleLogout} className="text-blue-700">
-            Hi, {currentUser.username} (Logout)
+          {currentUser ? (<button onClick={handleLogout} className=" text-teal-600">
+            {currentUser.username} Logout
           </button>
           ) : (<button
             onClick={openModal}
-            className="text-gray-700 hover:text-blue-600 transition-colors duration-300">Log in</button>)}
+            className="text-gray-1000 hover:text-yellow-400 transition-colors duration-300">Log in</button>)}
 
         </div>
 
@@ -125,12 +159,6 @@ function Navbar() {
                 "text-blue-600 font-semibold" :
                 "text-gray-700 hover:text-blue-600"}`}>Destinations</NavLink>
 
-          <NavLink to="/hotels"
-            onClick={closeMenu}
-            className={({ isActive }) =>
-              `py-2 transition-colors duration-500 ${isActive ?
-                "text-blue-600 font-semibold" :
-                "text-gray-700 hover:text-blue-600"}`}>Hotels</NavLink>
 
           <NavLink to="/about"
             onClick={closeMenu}
@@ -145,6 +173,20 @@ function Navbar() {
               `py-2 transition-colors duration-500 ${isActive ?
                 "text-blue-600 font-semibold" :
                 "text-gray-700 hover:text-blue-600"}`}>Contact</NavLink>
+          {currentUser && (
+            <NavLink
+              to="/my-bookings"
+              onClick={closeMenu}
+              className={({ isActive }) =>
+                `py-2 transition-colors duration-500 ${isActive
+                  ? "text-blue-600 font-semibold"
+                  : "text-gray-700 hover:text-blue-600"
+                }`
+              }
+            >
+              My Booking
+            </NavLink>
+          )}
 
           {currentUser ? (
             <button
