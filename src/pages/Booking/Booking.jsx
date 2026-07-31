@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { Link ,useNavigate} from "react-router-dom";
+import { useDispatch, useSelector,  } from "react-redux";
+import { Link, useNavigate ,useParams} from "react-router-dom";
 
 import ProgressBar from "../../components/Booking/ProgressBar";
 import BookingSummary from "../../components/Booking/BookingSummary";
@@ -27,7 +26,7 @@ const Booking = () => {
   const { id } = useParams();
 
   const dispatch = useDispatch();
-const navigate = useNavigate();
+  const navigate = useNavigate();
   const { destinations, loading } = useSelector(
     (state) => state.destination
   );
@@ -37,7 +36,7 @@ const navigate = useNavigate();
   );
   const [step, setStep] = useState(0);
   const [errors, setErrors] = useState({});
-  
+
 
   const [bookingData, setBookingData] = useState({
     departDate: "",
@@ -90,30 +89,32 @@ const navigate = useNavigate();
       setStep(step - 1);
     }
   };
- const handleConfirmBooking = async () => {
-  try {
-    const booking = {
-      ...bookingData,
-      destinationId: destination.id,
-      destinationName: destination.name,
-      country: destination.country,
-      image: destination.image,
-      status: "Confirmed",
-      bookedAt: new Date().toISOString(),
-    };
 
-    await dispatch(createBookingThunk(booking)).unwrap();
+  const handleConfirmBooking = async () => {
+    try {
+      const booking = {
+        ...bookingData,
+        destinationId: destination.id,
+        destinationName: destination.name,
+        country: destination.country,
+        image: destination.image,
+        status: "Confirmed",
+        bookedAt: new Date().toISOString(),
+      };
 
-    navigate("/booking-success", {
-      state: {
-        destination,
-        bookingData,
-      },
-    });
-  } catch (error) {
-    console.error("Booking failed:", error);
-  }
-};
+      await dispatch(createBookingThunk(booking)).unwrap();
+
+      navigate("/booking-success", {
+        state: {
+          destination,
+          bookingData,
+        },
+      });
+    } catch (error) {
+      console.error("Booking failed:", error);
+    }
+  };
+
   useEffect(() => {
     if (destinations.length === 0) {
       dispatch(fetchDestinations());
@@ -131,17 +132,17 @@ const navigate = useNavigate();
 
 
   return (
-    <section className="bg-stone-50 min-h-screen pt-28 pb-20">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="bg-stone-50 min-h-screen pt-24 lg:pt-28 pb-16 lg:pb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="mb-10">
           <Link
             to={`/destinations/${destination.id}`}
-            className="text-teal-700 hover:underline text-sm"
+            className="inline-block text-teal-700 hover:underline text-sm mb-3"
           >
             ← Back to {destination.name}
           </Link>
-          <h1 className="text-4xl font-bold text-stone-900">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-stone-900">
             Book Your Trip
           </h1>
 
@@ -150,12 +151,11 @@ const navigate = useNavigate();
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-10">
+        <div className="grid lg:grid-cols-3 gap-6 lg:gap-10">
 
           {/* Left */}
 
-          <div className="lg:col-span-2 bg-white rounded-3xl shadow-sm p-8">
-
+          <div className="lg:col-span-2 bg-white rounded-3xl shadow-sm p-5 sm:p-6 lg:p-8">
             <ProgressBar step={step} />
 
             {step === 0 && (
@@ -192,11 +192,11 @@ const navigate = useNavigate();
                 bookingData={bookingData}
               />
             )}
-            <div className="flex justify-between mt-10">
+            <div className="flex flex-col sm:flex-row justify-between gap-4 mt-10">
               {step > 0 ? (
                 <button
                   onClick={prevStep}
-                  className="px-6 py-3 border border-stone-300 rounded-xl font-medium hover:bg-stone-100 transition"
+                  className="w-full sm:w-auto px-6 py-3 border border-stone-300 rounded-xl font-medium hover:bg-stone-100 transition"
                 >
                   ← Back
                 </button>
@@ -207,14 +207,14 @@ const navigate = useNavigate();
               {step < 3 ? (
                 <Button
                   onClick={nextStep}
-                  className="bg-teal-700 text-white hover:bg-teal-600"
+                  className="w-full sm:w-auto bg-teal-700 text-white hover:bg-teal-600"
                 >
                   Continue →
                 </Button>
               ) : (
                 <Button
                   onClick={handleConfirmBooking}
-                  className="bg-amber-400 text-stone-900 hover:bg-amber-300"
+                  className="w-full sm:w-auto bg-amber-400 text-stone-900 hover:bg-amber-300"
                 >
                   Confirm Booking 🎉
                 </Button>

@@ -21,11 +21,11 @@ const BookingCard = ({ destination }) => {
 
   return (
     <aside className="lg:sticky lg:top-28 h-fit">
-      <div className="bg-white rounded-3xl shadow-xl p-8">
+    <div className="bg-white rounded-3xl shadow-xl p-5 sm:p-6 lg:p-8 transition-shadow duration-300 hover:shadow-2xl">
 
         {/* Price */}
         <div className="mb-8">
-          <h2 className="text-4xl font-bold text-teal-700">
+         <h2 className="text-3xl sm:text-4xl font-bold text-teal-700">
             ${destination.price.toLocaleString()}
           </h2>
 
@@ -53,7 +53,7 @@ const BookingCard = ({ destination }) => {
             </span>
           </div>
 
-          <div className="flex justify-between">
+         <div className="flex justify-between items-center gap-4">
             <span className="text-stone-500">
               Trip Type
             </span>
@@ -63,7 +63,7 @@ const BookingCard = ({ destination }) => {
             </span>
           </div>
 
-          <div className="flex justify-between">
+          <div className="flex justify-between items-center gap-4">
             <span className="text-stone-500">
               Reviews
             </span>
@@ -78,13 +78,13 @@ const BookingCard = ({ destination }) => {
         {/* Button */}
         <Button
           onClick={handleBooking}
-          className="w-full mt-8 bg-teal-700 text-white py-4 rounded-2xl font-semibold text-lg hover:bg-teal-600 transition"
+        className="w-full mt-8 bg-teal-700 text-white py-3 sm:py-4 rounded-2xl font-semibold text-base sm:text-lg hover:bg-teal-600 transition"
         >
           Book Now
         </Button>
 
         {/* Footer */}
-        <p className="text-center text-sm text-stone-500 mt-6">
+       <p className="text-center text-xs sm:text-sm text-stone-500 mt-6">
           🔒 Secure Booking • Free Cancellation
         </p>
 

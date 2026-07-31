@@ -10,8 +10,8 @@ import DestinationInfo from "./DestinationInfo";
 const DestinationDetails = () => {
     const { id } = useParams();
     const { destinations, loading, error } = useSelector(
-  (state) => state.destination
-);
+        (state) => state.destination
+    );
 
     const dispatch = useDispatch();
 
@@ -19,19 +19,19 @@ const DestinationDetails = () => {
         dispatch(fetchDestinations());
     }, [dispatch]);
 
-const destination = destinations.find(
-  (item) => item.id == id
-);
+    const destination = destinations.find(
+        (item) => item.id == id
+    );
 
-   if (loading) return <Loading />;
+    if (loading) return <Loading />;
 
-if (error) return <ErrorMessage message={error} />;
+    if (error) return <ErrorMessage message={error} />;
 
-if (!destination) return <EmptyState />;
+    if (!destination) return <EmptyState />;
 
 
     return (
-       <DestinationInfo destination={destination} />
+        <DestinationInfo destination={destination} />
     );
 };
 

@@ -10,35 +10,36 @@ function AuthModal() {
 
     const [isLogin, setIsLogin] = useState(true)
 
-    const dispatch=useDispatch()
+    const dispatch = useDispatch()
 
-   const closeModal = () => {
-    dispatch(closeAuthModal());
-}
+    const closeModal = () => {
+        dispatch(closeAuthModal());
+    }
 
     return (
-        <div className="fixed inset-0 z-[9999] bg-black/75 flex items-center justify-center">
+       <div className="fixed inset-0 z-[9999] bg-black/75 flex items-center justify-center p-4">
 
-            <div className="relative bg-white w-[900px] h-[600px] rounded-3xl shadow-2xl overflow-hidden mt-15">
+            <div className="relative bg-white w-[95%] max-w-5xl h-[90vh] rounded-3xl shadow-2xl overflow-hidden mt-8">
 
                 {/* close button */}
 
                 <button
                     onClick={closeModal}
-                    className="absolute top-5 right-5 text-black-400 hover:text-gray-700 text-3xl z-20"
+                   className="absolute top-4 right-4 text-2xl sm:text-3xl text-gray-700 hover:text-black z-20"
                 >
                     ×
                 </button>
 
-                <div className="flex h-full ">
+                <div className="flex flex-col lg:flex-row h-full">
 
-                    {isLogin
-                        ? <Login setIsLogin={setIsLogin}
-                          />
-                        : <Register setIsLogin={setIsLogin} />
-                    }
-
-                    <div className="flex-1 relative">
+                    <div className="w-full lg:w-1/2 overflow-y-auto">
+                        {isLogin ? (
+                            <Login setIsLogin={setIsLogin} />
+                        ) : (
+                            <Register setIsLogin={setIsLogin} />
+                        )}
+                    </div>
+                    <div className="hidden lg:block lg:w-1/2 relative">
                         <img
                             src={loginBanner}
                             alt="Travel"

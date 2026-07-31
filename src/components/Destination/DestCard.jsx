@@ -6,7 +6,7 @@ const DestCard = ({ destination }) => {
   return (
     <div
       onClick={() => navigate(`/destinations/${destination.id}`)}
-      className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer"
+      className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer"
     >
       {/* Image */}
       <div className="relative">
@@ -14,11 +14,11 @@ const DestCard = ({ destination }) => {
         <img
           src={destination.image}
           alt={destination.name}
-          className="w-full h-72 object-cover"
+          loading="lazy"
+          className="w-full h-56 sm:h-64 lg:h-72 object-cover"
         />
-
         {/* Tag */}
-        <span className="absolute top-4 left-4 bg-yellow-400 text-black px-4 py-2 rounded-full text-sm font-semibold">
+        <span className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-yellow-400 text-black px-4 py-2 rounded-full text-sm font-semibold">
           {destination.tag}
         </span>
 
@@ -33,11 +33,11 @@ const DestCard = ({ destination }) => {
 
       <div className="p-6">
 
-        <div className="flex justify-between items-start">
+        <div className="flex flex-col sm:flex-row justify-between sm:items-start gap-4">
 
           <div>
 
-            <h2 className="text-3xl font-bold">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold">
               {destination.name}
             </h2>
 
@@ -49,7 +49,7 @@ const DestCard = ({ destination }) => {
 
           <div className="text-right">
 
-            <h3 className="text-3xl font-bold text-teal-600">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-teal-600">
               ${destination.price}
             </h3>
 
@@ -73,7 +73,7 @@ const DestCard = ({ destination }) => {
 
         {/* Bottom */}
 
-        <div className="flex justify-between items-center mt-6">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mt-6">
 
           <button className="text-amber-400 font-semibold hover:underline">
             View Details →

@@ -2,33 +2,17 @@ const DestinationMeta = ({ destination }) => {
   return (
     <section className="space-y-6">
       {/* Heading */}
-      <h2 className="text-3xl font-bold text-stone-900">
+     <h2 className="text-2xl sm:text-3xl font-bold text-stone-900">
         Trip Overview
       </h2>
 
       {/* Rating & Duration */}
       <div className="flex flex-wrap gap-4">
-        {/* Rating */}
-        <div className="flex items-center gap-3 bg-white px-5 py-4 rounded-2xl shadow-sm">
-          <span className="text-2xl">⭐</span>
-
-          <div>
-            <h3 className="font-semibold text-lg">
-              {destination.rating}
-            </h3>
-
-            <p className="text-gray-500 text-sm">
-              {destination.reviews.toLocaleString()} Reviews
-            </p>
-          </div>
-        </div>
-
         {/* Duration */}
-        <div className="flex items-center gap-3 bg-white px-5 py-4 rounded-2xl shadow-sm">
-          <span className="text-2xl">🗓</span>
-
+       <div className="flex items-center gap-3 bg-white px-4 sm:px-5 py-3 sm:py-4 rounded-2xl shadow-sm">
+       <span className="text-xl sm:text-2xl flex-shrink-0">🗓</span>
           <div>
-            <h3 className="font-semibold text-lg">
+           <h3 className="font-semibold text-base sm:text-lg">
               {destination.duration}
             </h3>
 
@@ -41,7 +25,7 @@ const DestinationMeta = ({ destination }) => {
 
       {/* Trip Types */}
       <div>
-        <h3 className="text-xl font-semibold text-stone-900 mb-4">
+       <h3 className="text-lg sm:text-xl font-semibold text-stone-900 mb-4">
           Trip Type
         </h3>
 
@@ -49,7 +33,7 @@ const DestinationMeta = ({ destination }) => {
           {destination.type.map((item) => (
             <span
               key={item}
-              className="bg-teal-100 text-teal-700 px-5 py-2 rounded-full text-sm font-semibold hover:bg-teal-700 hover:text-white transition-all duration-300"
+             className="bg-teal-100 text-teal-700 px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold hover:bg-teal-700 hover:text-white transition-all duration-300"
             >
               {item}
             </span>

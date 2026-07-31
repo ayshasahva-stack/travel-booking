@@ -12,6 +12,7 @@ import MyBooking from "../pages/Mybooking/MyBooking";
 import ProtectedRoute from "./ProtectedRoute";
 import DestinationDetails from "../pages/DestinationDetails/DestinationDetails";
 import BookingSuccess from "../components/Booking/BookingSuccess";
+import ScrolltoTop from "../components/Common/ScrolltoTop";
 
 
 // import Register from "../components/Auth/Register";
@@ -21,6 +22,7 @@ import BookingSuccess from "../components/Booking/BookingSuccess";
 const AppRoutes = () => {
     return (
         <BrowserRouter>
+        <ScrolltoTop/>
             <Routes>
                 {/* <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login />} /> */}

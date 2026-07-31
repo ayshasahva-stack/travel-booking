@@ -6,7 +6,6 @@ import DestFilter from "../../components/Destination/DestFilter";
 import { useDispatch } from "react-redux";
 import { fetchDestinations } from "../../redux/destination/destinationThunk";
 import DestSort from "../../components/Destination/DestSort";
-import Footer from '../../components/Footer/Footer';
 import Loading from '../../components/Common/Loading';
 import EmptyState from '../../components/Common/EmptyState';
 import ErrorMessage from '../../components/Common/ErrorMessage';
@@ -31,11 +30,8 @@ const Destinations = () => {
   if (loading)
     return <Loading />;
   if (error) {
-    return (
-      <div className="text-center py-20 text-red-500">
-        {error}
-      </div>
-    );
+    return <ErrorMessage message={error} />;
+
   }
   const filteredDestinations = destinations.filter((destination) => {
     const matchesSearch = destination.name
@@ -63,18 +59,17 @@ const Destinations = () => {
   }
 
   return (
-    <section className="min-h-screen bg-gray-50 py-16">
+   <section className="min-h-screen bg-gray-50 pt-28 pb-16">
       <div className="max-w-7xl mx-auto px-6">
-      
 
-        <h1 className="text-5xl font-bold text-center mt-10">
+<h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center">
           Explore Destinations
         </h1>
 
-         
-        <p className="text-center text-gray-500 mt-3">
-          Find your perfect destination for your next unforgettable journey.
-        </p>
+
+       <p className="text-center text-gray-500 mt-3 max-w-2xl mx-auto">
+  Find your perfect destination for your next unforgettable journey.
+</p>
 
 
         <DestSearch
@@ -94,14 +89,14 @@ const Destinations = () => {
           />
         </div>
         {sortedDestinations.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
             {sortedDestinations.map((destination) => (
               <DestCard
                 key={destination.id}
                 destination={destination}
               />
             ))}
-          </div>  
+          </div>
         ) : (
           <EmptyState />
         )}
