@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { openAuthModal } from "../../redux/ui/uiSlice";
 import Button from '../Common/Button';
 
+
 const Hero = () => {
 
   const navigate = useNavigate()
