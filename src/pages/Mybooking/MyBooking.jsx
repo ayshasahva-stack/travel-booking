@@ -45,7 +45,7 @@ const MyBookings = () => {
     }
 
     return (
-        <section className="pt-28 pb-20 bg-stone-50 min-h-screen">
+        <section className="pt-28 pb-20 bg-stone-50 min-h-screen dark:bg-stone-950">
             <div className="max-w-7xl mx-auto px-6">
                 <BookingHeader />
 

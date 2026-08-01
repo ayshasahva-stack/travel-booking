@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 const EmptyBookings = () => {
   return (
     <div className="text-center py-20">
-      <h2 className="text-3xl font-semibold text-stone-700">
+      <h2 className="text-3xl font-semibold text-stone-700 dark:text-stone-200">
         No Bookings Found
       </h2>
 
-      <p className="text-stone-500 mt-3">
+      <p className="text-stone-500 mt-3 dark:text-stone-400">
         You haven't booked any trips yet.
       </p>
 

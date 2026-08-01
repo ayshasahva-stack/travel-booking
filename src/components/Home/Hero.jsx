@@ -38,7 +38,7 @@ const { user } = useSelector((state) => state.auth);
       <div className="relative z-10 flex flex-col justify-center items-center h-full text-center px-6">
         <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight">
           Explore the World with{" "}
-          <span className="text-yellow-400">TravelEase</span>
+          <span className="text-yellow-400">Travel</span><span className="text-teal-600">Ease</span>
         </h1>
         <p className="mt-6 max-w-2xl text-lg md:text-xl text-gray-200">
           Discover breathtaking destinations, luxury hotels, and unforgettable

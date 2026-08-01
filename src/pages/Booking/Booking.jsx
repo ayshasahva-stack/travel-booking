@@ -132,21 +132,21 @@ const Booking = () => {
 
 
   return (
-    <section className="bg-stone-50 min-h-screen pt-24 lg:pt-28 pb-16 lg:pb-20">
+    <section className="bg-stone-50 dark:bg-stone-950 min-h-screen pt-24 lg:pt-28 pb-16 lg:pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="mb-10">
           <Link
             to={`/destinations/${destination.id}`}
-            className="inline-block text-teal-700 hover:underline text-sm mb-3"
+            className="inline-block text-teal-700 dark:text-teal-500 hover:underline text-sm mb-3"
           >
             ← Back to {destination.name}
           </Link>
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-stone-900">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-stone-900 dark:text-white">
             Book Your Trip
           </h1>
 
-          <p className="text-stone-500 mt-2">
+          <p className="text-stone-500 dark:text-stone-400 mt-2">
             {destination.name}, {destination.country}
           </p>
         </div>

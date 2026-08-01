@@ -40,7 +40,7 @@ const WhyChooseUs = () => {
         {/* Heading */}
 
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <p className="uppercase tracking-[4px] text-teal-700 font-semibold">
+          <p className="uppercase tracking-[4px] text-amber-300 font-semibold">
             Why Choose Us
           </p>
 
@@ -50,7 +50,7 @@ const WhyChooseUs = () => {
             For Your Perfect Trip
           </h2>
 
-          <p className="mt-6 text-stone-600 leading-8">
+          <p className="mt-6 text-stone-800 leading-8">
             We make travel planning simple, affordable, and enjoyable
             with trusted services designed for every traveler.
           </p>

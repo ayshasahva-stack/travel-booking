@@ -6,6 +6,7 @@ import {
   FaMapMarkerAlt,
   FaPhoneAlt,
   FaEnvelope,
+  FaPlaneDeparture
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -18,9 +19,13 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="lg:col-span-2">
-            <h2 className="text-3xl font-bold text-amber-400 ">
-              TravelEase
-            </h2>
+             {/* Logo */}
+                    < div className="flex items-center gap-2">
+                      <FaPlaneDeparture className="text-teal-600 text-2xl" />
+                      <h2 className="text-3xl font-bold text-amber-400">
+                        Travel<span className="text-teal-600">Ease</span>
+                      </h2>
+                    </div>
 
             <p className="mt-5 text-stone-400 leading-8 max-w-md">
               TravelEase helps you discover breathtaking destinations,

@@ -77,7 +77,7 @@ function Navbar() {
         < div className="flex items-center gap-2">
           <FaPlaneDeparture className="text-teal-600 text-2xl" />
           <h2 className="text-3xl font-bold text-amber-400">
-            TravelEase
+            Travel<span className="text-teal-600">Ease</span>
           </h2>
         </div>
 

@@ -10,8 +10,8 @@ const BookingSuccess = () => {
         destination.price *
         (Number(bookingData.adults) + Number(bookingData.children) || 1);
     return (
-        <section className="bg-stone-50 min-h-screen flex items-center justify-center px-6 py-20">
-            <div className="bg-white max-w-2xl w-full rounded-3xl shadow-lg p-10 text-center">
+        <section className="bg-stone-50 dark:bg-stone-800 min-h-screen flex items-center justify-center px-6 py-20">
+            <div className="bg-white max-w-2xl w-full rounded-3xl shadow-lg p-8 text-center">
 
                 {/* Success Icon */}
                 <FaCheckCircle
