@@ -2,7 +2,7 @@ import { FaBullseye, FaEye } from "react-icons/fa";
 
 const MissionVision = () => {
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-16 md:py-24 bg-white dark:bg-stone-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Heading */}
@@ -11,11 +11,11 @@ const MissionVision = () => {
             Our Purpose
           </p>
 
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-900">
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-900 dark:text-white">
             Mission & Vision
           </h2>
 
-          <p className="mt-6 text-stone-600 leading-8">
+          <p className="mt-6 text-stone-400 leading-8">
             We are passionate about making travel simple, memorable,
             and accessible for everyone.
           </p>

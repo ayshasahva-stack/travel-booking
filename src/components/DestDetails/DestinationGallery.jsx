@@ -16,13 +16,6 @@ const DestinationGallery = ({ destination }) => {
         />
 
         <div className="absolute inset-0 bg-black/40"></div>
-
-        <Link
-          to="/destinations"
-          className="absolute top-6 left-6 bg-white/20 backdrop-blur-md text-white px-5 py-2 rounded-full hover:bg-white/30 transition"
-        >
-          ← Back
-        </Link>
         <div className="absolute bottom-6 left-4 sm:bottom-10 sm:left-10 text-white">
 
           <p className="text-base sm:text-lg">

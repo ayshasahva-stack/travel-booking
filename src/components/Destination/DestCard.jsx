@@ -6,7 +6,7 @@ const DestCard = ({ destination }) => {
   return (
     <div
       onClick={() => navigate(`/destinations/${destination.id}`)}
-      className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer"
+      className="bg-white dark:bg-stone-900 rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer"
     >
       {/* Image */}
       <div className="relative">
@@ -23,7 +23,7 @@ const DestCard = ({ destination }) => {
         </span>
 
         {/* Duration */}
-        <span className="absolute top-4 right-4 bg-white px-4 py-2 rounded-full text-sm font-semibold text-gray-700">
+        <span className="absolute top-4 right-4 bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-200 px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300">
           {destination.duration}
         </span>
 
@@ -37,11 +37,11 @@ const DestCard = ({ destination }) => {
 
           <div>
 
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-stone-900 dark:text-white transition-colors duration-300">
               {destination.name}
             </h2>
 
-            <p className="text-gray-500 mt-1">
+            <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-stone-900 dark:text-white transition-colors duration-300">
               📍 {destination.country}
             </p>
 
@@ -53,7 +53,7 @@ const DestCard = ({ destination }) => {
               ${destination.price}
             </h3>
 
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-stone-500 dark:text-stone-400 transition-colors duration-300">
               per person
             </p>
 

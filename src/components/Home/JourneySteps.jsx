@@ -38,7 +38,7 @@ const steps = [
 
 const JourneySteps = () => {
     return (
-        <section className="py-24 bg-gradient-to-b from-white to-stone-50">
+       <section className="py-24 bg-gradient-to-b from-white via-stone-50 to-stone-100 dark:from-stone-900 dark:via-stone-950 dark:to-black transition-colors duration-300">
             <div className="max-w-7xl mx-auto px-6">
 
                 {/* Heading */}
@@ -48,7 +48,7 @@ const JourneySteps = () => {
                         Simple Process
                     </p>
 
-                    <h2 className="text-5xl font-bold mt-4 text-stone-900">
+                    <h2 className="text-5xl font-bold mt-4 text-stone-900 dark:text-white">
                         Your Journey in 4 Steps
                     </h2>
                 </div>
@@ -72,7 +72,7 @@ const JourneySteps = () => {
                                 {step.id}
                             </p>
 
-                            <h3 className="text-2xl font-bold mt-3">
+                            <h3 className="text-2xl font-bold mt-3 dark:text-white">
                                 {step.title}
                             </h3>
 

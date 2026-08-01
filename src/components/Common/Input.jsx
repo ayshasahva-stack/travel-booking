@@ -17,20 +17,24 @@ const Input = ({
     rounded-xl
     px-4
     py-3
+    bg-white dark:bg-stone-900
+    text-stone-800 dark:text-white
+    placeholder:text-stone-400 dark:placeholder:text-stone-500
     focus:outline-none
     focus:ring-2
     focus:ring-teal-500
+    transition-colors duration-300
     ${
       error
         ? "border-red-500"
-        : "border-stone-300"
+        : "border-stone-300 dark:border-stone-700"
     }
     ${className}
   `;
 
   return (
     <div className="mb-5">
-      <label className="block mb-2 font-medium">
+      <label className="block mb-2 font-medium text-stone-800 dark:text-white transition-colors duration-300">
         {label}
       </label>
 

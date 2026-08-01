@@ -32,7 +32,7 @@ const Faq = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-16 md:py-24 bg-white dark:bg-stone-950">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Heading */}
@@ -41,11 +41,11 @@ const Faq = () => {
             FAQs
           </p>
 
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-900">
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-600 dark:text-stone-400">
             Frequently Asked Questions
           </h2>
 
-          <p className="mt-6 text-stone-600 leading-8">
+          <p className="mt-6 text-stone-600 dark:text-stone-400 leading-8">
             Find answers to some of the most common questions about
             TravelEase and our booking process.
           </p>

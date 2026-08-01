@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from '../../redux/auth/authSlice'
 import { openAuthModal } from "../../redux/ui/uiSlice";
+import ThemeToggle from "../Common/ThemeToggle";
 
 
 function Navbar() {
@@ -61,12 +62,13 @@ function Navbar() {
 
 
   return (
-    <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isHomePage && !scrolled
-          ? "bg-transparent"
-          : "bg-white shadow-md"
-        }`}
-    >
+   <nav
+  className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+    isHomePage && !scrolled
+      ? "bg-transparent"
+      : "bg-white dark:bg-stone-900 shadow-md"
+  }`}
+>
 
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
@@ -86,46 +88,43 @@ function Navbar() {
             className={({ isActive }) =>
               `transition-colors duration-500 ${isActive ?
                 "text-yellow-500 font-semibold" :
-                "text-gray-1000 hover:text-yellow-400"}`}>Home</NavLink>
+                "text-stone-800 dark:text-stone-200 hover:text-yellow-400"}`}>Home</NavLink>
           <NavLink to='/destinations'
             className={({ isActive }) =>
               `transition-colors duration-500 ${isActive ?
                 "text-yellow-500 font-semibold" :
-                "text-gray-1000 hover:text-yellow-400"}`}>Destinations</NavLink>
+                "text-stone-800 dark:text-stone-200 hover:text-yellow-400"}`}>Destinations</NavLink>
           <NavLink to='/about'
             className={({ isActive }) =>
               `transition-colors duration-500 ${isActive ?
                 "text-yellow-500 font-semibold" :
-                "text-gray-1000 hover:text-yellow-400"}`}>About</NavLink>
+                "text-stone-800 dark:text-stone-200 hover:text-yellow-400"}`}>About</NavLink>
           <NavLink to='/contact'
             className={({ isActive }) =>
               `transition-colors duration-500 ${isActive ?
                 "text-yellow-500 font-semibold" :
-                "text-gray-1000 hover:text-yellow-400"}`}>Contact</NavLink>
+                "text-stone-800 dark:text-stone-200 hover:text-yellow-400"}`}>Contact</NavLink>
           {currentUser && (
             <NavLink
               to="/my-bookings"
               className={({ isActive }) =>
                 `transition-colors duration-500 ${isActive
                   ? "text-yellow-500 font-semibold"
-                  : "text-gray-1000 hover:text-yellow-400"
+                  : "text-stone-800 dark:text-stone-200 hover:text-yellow-400"
                 }`
               }
             >
               My Booking
             </NavLink>
           )}
-
-          {/* <button
-            onClick={openModal}
-            className="text-gray-700 hover:text-blue-600 transition-colors duration-300">Log in</button> */}
+          <ThemeToggle />
 
           {currentUser ? (<button onClick={handleLogout} className=" text-teal-600">
             {currentUser.username} Logout
           </button>
           ) : (<button
             onClick={openModal}
-            className="text-gray-1000 hover:text-yellow-400 transition-colors duration-300">Log in</button>)}
+            className="text-stone-800 dark:text-stone-200 hover:text-yellow-400 transition-colors duration-300">Log in</button>)}
 
         </div>
 
@@ -133,9 +132,9 @@ function Navbar() {
         <div className="md:hidden">
           <button onClick={toggleMenu}>
             {menuOpen ? (
-              <FaTimes className="text-2xl" />
+           <FaTimes className="text-2xl text-stone-800 dark:text-white" />
             ) : (
-              <FaBars className="text-2xl" />
+             <FaBars className="text-2xl text-stone-800 dark:text-white" />
             )}
           </button>
         </div>
@@ -143,50 +142,52 @@ function Navbar() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white shadow-md px-6 py-4 flex flex-col gap-4">
-
+      <div className="md:hidden bg-white dark:bg-stone-900 shadow-md transition-colors duration-300 px-6 py-4 flex flex-col gap-4">
           <NavLink to="/"
             onClick={closeMenu}
             className={({ isActive }) =>
               `py-2 transition-colors duration-500 ${isActive ?
-                "text-blue-600 font-semibold" :
-                "text-gray-700 hover:text-blue-600"}`}> Home</NavLink>
+                "text-yellow-500 font-semibold" :
+                "text-stone-700 dark:text-stone-200 hover:text-yellow-400"}`}> Home</NavLink>
 
           <NavLink to="/destinations"
             onClick={closeMenu}
             className={({ isActive }) =>
               `py-2 transition-colors duration-500 ${isActive ?
-                "text-blue-600 font-semibold" :
-                "text-gray-700 hover:text-blue-600"}`}>Destinations</NavLink>
+                "text-yellow-500 font-semibold" :
+                "text-stone-700 dark:text-stone-200 hover:text-yellow-400"}`}>Destinations</NavLink>
 
 
           <NavLink to="/about"
             onClick={closeMenu}
             className={({ isActive }) =>
               `py-2 transition-colors duration-500 ${isActive ?
-                "text-blue-600 font-semibold" :
-                "text-gray-700 hover:text-blue-600"}`}>About</NavLink>
+                "text-yellow-500 font-semibold" :
+                "text-stone-700 dark:text-stone-200 hover:text-yellow-400"}`}>About</NavLink>
 
           <NavLink to="/contact"
             onClick={closeMenu}
             className={({ isActive }) =>
               `py-2 transition-colors duration-500 ${isActive ?
-                "text-blue-600 font-semibold" :
-                "text-gray-700 hover:text-blue-600"}`}>Contact</NavLink>
+                "text-yellow-500 font-semibold" :
+                "text-stone-700 dark:text-stone-200 hover:text-yellow-400"}`}>Contact</NavLink>
           {currentUser && (
             <NavLink
               to="/my-bookings"
               onClick={closeMenu}
               className={({ isActive }) =>
                 `py-2 transition-colors duration-500 ${isActive
-                  ? "text-blue-600 font-semibold"
-                  : "text-gray-700 hover:text-blue-600"
+                  ? "text-yellow-500 font-semibold"
+                  : "text-stone-700 dark:text-stone-200 hover:text-yellow-400"
                 }`
               }
             >
               My Booking
             </NavLink>
           )}
+          <div className="py-2">
+            <ThemeToggle />
+          </div>
 
           {currentUser ? (
             <button
@@ -194,7 +195,7 @@ function Navbar() {
                 closeMenu();
                 handleLogout();
               }}
-              className="text-left py-2 text-blue-700"
+              className="text-left py-2 text-teal-600 dark:text-teal-400"
             >
               Hi, {currentUser.username} (Logout)
             </button>
@@ -204,7 +205,7 @@ function Navbar() {
                 closeMenu();
                 openModal();
               }}
-              className="text-left py-2 text-gray-700 hover:text-blue-600"
+              className="text-left py-2 text-stone-700 dark:text-stone-200 hover:text-teal-6000"
             >
               Log in
             </button>

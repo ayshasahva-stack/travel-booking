@@ -59,17 +59,17 @@ const Destinations = () => {
   }
 
   return (
-   <section className="min-h-screen bg-gray-50 pt-28 pb-16">
+    <section className="min-h-screen bg-gray-50 dark:bg-stone-950 pt-28 pb-16">
       <div className="max-w-7xl mx-auto px-6">
 
-<h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl dark:text-white font-bold text-center">
           Explore Destinations
         </h1>
 
 
-       <p className="text-center text-gray-500 mt-3 max-w-2xl mx-auto">
-  Find your perfect destination for your next unforgettable journey.
-</p>
+        <p className="text-center text-gray-500 mt-3 max-w-2xl mx-auto">
+          Find your perfect destination for your next unforgettable journey.
+        </p>
 
 
         <DestSearch

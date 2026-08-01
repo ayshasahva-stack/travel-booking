@@ -8,7 +8,7 @@ const Button = ({
 }) => {
   const variants = {
     primary: "bg-teal-700 text-white hover:bg-teal-600",
-    secondary: "border border-stone-300 hover:bg-stone-100",
+   secondary:"border border-stone-300 dark:border-stone-700 text-stone-900 dark:text-white hover:bg-stone-100 dark:hover:bg-stone-800",
     warning: "bg-amber-400 text-stone-900 hover:bg-amber-300",
     danger: "bg-red-600 text-white hover:bg-red-500",
   };

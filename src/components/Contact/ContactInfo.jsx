@@ -30,20 +30,20 @@ const contactDetails = [
 
 const ContactInfo = () => {
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-16 md:py-24 bg-white dark:bg-stone-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Heading */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <p className="uppercase tracking-[4px] text-teal-700 font-semibold">
+          <p className="uppercase tracking-[4px] text-teal-700 font-semibold ">
             Get In Touch
           </p>
 
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-900">
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-900 dark:text-white">
             Contact Information
           </h2>
 
-          <p className="mt-6 text-stone-600 leading-8">
+          <p className="mt-6 text-stone-600 dark:text-stone-400 leading-8">
             We'd love to hear from you. Reach out to us through any of
             the following contact details.
           </p>

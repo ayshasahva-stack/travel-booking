@@ -1,4 +1,5 @@
 import { FiSearch } from "react-icons/fi";
+import Input from "../Common/Input";
 
 const DestSearch = ({ searchTerm, setSearchTerm }) => {
   return (
@@ -6,7 +7,7 @@ const DestSearch = ({ searchTerm, setSearchTerm }) => {
       <div className="relative max-w-4xl mx-auto">
         <FiSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-lg" />
 
-        <input
+        <Input
           type="text"
           placeholder="Search destinations..."
           value={searchTerm}

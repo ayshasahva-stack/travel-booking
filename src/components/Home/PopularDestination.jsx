@@ -26,12 +26,12 @@ const PopularDestinations = () => {
     }
 
     return (
-        <section className="py-20 bg-gray-100">
+        <section className="py-20 bg-gray-100 dark:bg-stone-950">
             <div className="max-w-7xl mx-auto px-6">
 
                 {/* Heading */}
                 <div className="text-center mb-14">
-                    <h2 className="text-5xl font-bold text-gray-800">
+                    <h2 className="text-5xl font-bold text-gray-800 dark:text-white">
                         Explore Popular Destinations
                     </h2>
 
@@ -44,14 +44,14 @@ const PopularDestinations = () => {
                 {/* Cards */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
-                    {destinations.slice(0, 4).map((destination,index) => (
+                    {destinations.slice(0, 4).map((destination, index) => (
 
                         <div
                             onClick={() => navigate(`/destinations/${destination.id}`)}
                             key={destination.id}
-                             data-aos="fade-up"
-    data-aos-delay={index * 150}
-    className="relative text-center group"
+                            data-aos="fade-up"
+                            data-aos-delay={index * 150}
+                            className="relative text-center group"
                             className="relative h-[500px] rounded-3xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"
                         >
 
