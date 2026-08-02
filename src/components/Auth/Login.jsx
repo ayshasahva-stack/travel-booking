@@ -4,7 +4,7 @@ import { loginThunk } from '../../redux/auth/authThunk'
 import { closeAuthModal } from "../../redux/ui/uiSlice";
 import Button from '../Common/Button';
 import Input from '../Common/Input';
-const Login = ({ setIsLogin }) => {
+const Login = ({ goToRegister }) => {
 
   const [formData, setFormData] = useState({
     email: "",
@@ -139,7 +139,7 @@ const Login = ({ setIsLogin }) => {
           <button
             type='button'
             className="text-teal-600  hover:underline "
-            onClick={() => setIsLogin(false)}>
+             onClick={goToRegister}>
             Create Account
           </button>
 

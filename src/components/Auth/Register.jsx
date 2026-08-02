@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import Button from '../Common/Button'
 import Input from "../Common/Input";
 
-const Register = ({ setIsLogin }) => {
+const Register = ({ goToLogin }) => {
 
   const [formData, setFormData] = useState({
     username: "",
@@ -22,8 +22,11 @@ const Register = ({ setIsLogin }) => {
     setFormData({ ...formData, [name]: value })
 
   }
-  const handleRegister = async (e) => {
-    e.preventDefault()
+ const handleRegister = async (e) => {
+  e.preventDefault();
+    e.stopPropagation();
+   console.log("FORM SUBMITTED");
+  console.log("Register submitted");
 
     const newErrors = {}
 
@@ -52,27 +55,34 @@ const Register = ({ setIsLogin }) => {
       return;
     }
 
-    const result = await dispatch(registerThunk(formData))
+   const result = await dispatch(registerThunk(formData));
 
-    if (registerThunk.fulfilled.match(result)) {
-      alert("registered successfully")
+console.log("Thunk result:", result);
 
-      setFormData({
-        username: "",
-        email: "",
-        password: "",
-      });
+if (registerThunk.fulfilled.match(result)) {
+  console.log("SUCCESS");
 
-      setErrors({});
-      console.log("Switching to login...");
-      setIsLogin(true);
-    }
-    else if (registerThunk.rejected.match(result)) {
-      setErrors({
-        email: result.payload
-      })
+  setFormData({
+    username: "",
+    email: "",
+    password: "",
+  });
 
-    }
+  setErrors({});
+
+  console.log("Before goToLogin");
+
+setTimeout(() => {
+  console.log("Calling goToLogin");
+  goToLogin();
+}, 5000);
+} else {
+  console.log("REJECTED", result);
+
+  setErrors({
+    email: result.payload,
+  });
+}
 
 
 
@@ -129,7 +139,7 @@ const Register = ({ setIsLogin }) => {
             <p >Already have an account?</p>
             <button type='button'
               className='text-teal-600 hover:underline'
-              onClick={() => setIsLogin(true)}
+               onClick={goToLogin}
             >Log in</button>
 
           </div>

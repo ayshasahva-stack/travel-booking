@@ -11,6 +11,14 @@ const store = configureStore({
         ui: uiReducer,
         destination: destinationReducer,
          booking: bookingReducer,
-    }
-})
+    },
+});
+store.subscribe(() => {
+  const { showAuthModal, isLogin } = store.getState().ui;
+
+  console.log({
+    showAuthModal,
+    isLogin,
+  });
+});
 export default store;

@@ -6,6 +6,8 @@ import Footer from '../components/Footer/Footer'
 const MainLayout = () => {
 const showModal = useSelector((state) => state.ui.showAuthModal);
 
+console.log("showModal:", showModal);
+
 
   return (
     <div>

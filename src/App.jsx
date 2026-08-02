@@ -5,28 +5,14 @@ import AppRoutes from "./routes/AppRoutes";
 import SplashScreen from "./components/Common/SplachScreen";
 
 function App() {
-  const [loading, setLoading] = useState(true);
+ useEffect(() => {
+  AOS.init({
+    duration: 800,
+    once: true,
+  });
+}, []);
 
-  useEffect(() => {
-    // Initialize AOS
-    AOS.init({
-      duration: 800,
-      once: true,
-    });
-
-    // Splash screen timer
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) {
-    return <SplashScreen />;
-  }
-
-  return <AppRoutes />;
+return <AppRoutes />;
 }
 
 export default App;

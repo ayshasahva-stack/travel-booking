@@ -3,7 +3,7 @@ import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from '../../redux/auth/authSlice'
-import { openAuthModal } from "../../redux/ui/uiSlice";
+import { openAuthModal ,setLoginMode} from "../../redux/ui/uiSlice";
 import ThemeToggle from "../Common/ThemeToggle";
 
 
@@ -42,9 +42,10 @@ function Navbar() {
     };
   }, []);
 
-  const openModal = () => {
-    dispatch(openAuthModal());
-  }
+ const openModal = () => {
+  dispatch(setLoginMode());
+  dispatch(openAuthModal());
+};
 
   const handleLogout = () => {
     localStorage.removeItem("currentUser");
@@ -56,7 +57,8 @@ function Navbar() {
     if (currentUser) {
       navigate("/booking");
     } else {
-      dispatch(openAuthModal());
+     dispatch(setLoginMode());
+dispatch(openAuthModal());
     }
   };
 
