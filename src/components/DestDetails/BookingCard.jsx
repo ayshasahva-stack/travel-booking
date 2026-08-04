@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { openAuthModal } from "../../redux/ui/uiSlice";
 import Button from "../Common/Button";
+import { openLogin } from "../../redux/ui/uiSlice";
 
 const BookingCard = ({ destination }) => {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ const BookingCard = ({ destination }) => {
 
   const handleBooking = () => {
     if (!user) {
-  dispatch(openAuthModal());
+  dispatch(openLogin())
   return;
 }
    navigate(`/booking/${destination.id}`);

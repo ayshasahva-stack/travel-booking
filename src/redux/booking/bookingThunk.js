@@ -43,3 +43,17 @@ export const deleteBookingThunk = createAsyncThunk(
     }
   }
 );
+
+// Update Booking
+export const updateBookingThunk = createAsyncThunk(
+  "booking/updateBooking",
+  async ({ id, bookingData }, { rejectWithValue }) => {
+    try {
+      return await bookingService.updateBooking(id, bookingData);
+    } catch (error) {
+      return rejectWithValue(
+        error.response?.data?.message || "Failed to update booking"
+      );
+    }
+  }
+);

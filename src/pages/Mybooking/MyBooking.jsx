@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { getBookingsThunk, deleteBookingThunk } from "../../redux/booking/bookingThunk";
@@ -7,9 +7,13 @@ import BookingHeader from "../../components/MyBooking/BookingHeader";
 import BookingList from "../../components/MyBooking/BookingList";
 import EmptyBookings from "../../components/MyBooking/EmptyBookins";
 import Loading from "../../components/Common/Loading";
+import EditBooking from "../../components/MyBooking/EditBooking";
 
 const MyBookings = () => {
     const dispatch = useDispatch();
+
+    const [showEditModal, setShowEditModal] = useState(false);
+    const [selectedBooking, setSelectedBooking] = useState(null);
 
     const { bookings, loading, error } = useSelector(
         (state) => state.booking
@@ -19,6 +23,10 @@ const MyBookings = () => {
         dispatch(getBookingsThunk());
     }, [dispatch]);
 
+    const handleEditBooking = (booking) => {
+        setSelectedBooking(booking);
+        setShowEditModal(true);
+    };
     const handleCancelBooking = async (id) => {
         const confirmed = window.confirm(
             "Are you sure you want to cancel this booking?"
@@ -45,21 +53,29 @@ const MyBookings = () => {
     }
 
     return (
-        <section className="pt-28 pb-20 bg-stone-50 min-h-screen dark:bg-stone-950">
-            <div className="max-w-7xl mx-auto px-6">
-                <BookingHeader />
+    <section className="pt-28 pb-20 bg-stone-50 min-h-screen dark:bg-stone-950">
+        <div className="max-w-7xl mx-auto px-6">
+            <BookingHeader />
 
-                {bookings.length === 0 ? (
-                    <EmptyBookings />
-                ) : (
-                    <BookingList
-                        bookings={bookings}
-                        onCancelBooking={handleCancelBooking}
-                    />
-                )}
-            </div>
-        </section>
-    );
+            {bookings.length === 0 ? (
+                <EmptyBookings />
+            ) : (
+                <BookingList
+                    bookings={bookings}
+                    onCancelBooking={handleCancelBooking}
+                    onEditBooking={handleEditBooking}
+                />
+            )}
+        </div>
+
+        {showEditModal && (
+            <EditBooking
+                booking={selectedBooking}
+                onClose={() => setShowEditModal(false)}
+            />
+        )}
+    </section>
+);
 };
 
 export default MyBookings;

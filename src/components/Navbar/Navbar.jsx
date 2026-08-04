@@ -3,7 +3,7 @@ import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from '../../redux/auth/authSlice'
-import { openAuthModal ,setLoginMode} from "../../redux/ui/uiSlice";
+import { openLogin } from "../../redux/ui/uiSlice";
 import ThemeToggle from "../Common/ThemeToggle";
 
 
@@ -42,10 +42,9 @@ function Navbar() {
     };
   }, []);
 
- const openModal = () => {
-  dispatch(setLoginMode());
-  dispatch(openAuthModal());
-};
+  const openModal = () => {
+    dispatch(openLogin());
+  };
 
   const handleLogout = () => {
     localStorage.removeItem("currentUser");
@@ -57,20 +56,18 @@ function Navbar() {
     if (currentUser) {
       navigate("/booking");
     } else {
-     dispatch(setLoginMode());
-dispatch(openAuthModal());
+      dispatch(openLogin());
     }
   };
 
 
   return (
-   <nav
-  className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-    isHomePage && !scrolled
-      ? "bg-transparent"
-      : "bg-white dark:bg-stone-900 shadow-md"
-  }`}
->
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isHomePage && !scrolled
+          ? "bg-transparent"
+          : "bg-white dark:bg-stone-900 shadow-md"
+        }`}
+    >
 
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
@@ -134,9 +131,9 @@ dispatch(openAuthModal());
         <div className="md:hidden">
           <button onClick={toggleMenu}>
             {menuOpen ? (
-           <FaTimes className="text-2xl text-stone-800 dark:text-white" />
+              <FaTimes className="text-2xl text-stone-800 dark:text-white" />
             ) : (
-             <FaBars className="text-2xl text-stone-800 dark:text-white" />
+              <FaBars className="text-2xl text-stone-800 dark:text-white" />
             )}
           </button>
         </div>
@@ -144,7 +141,7 @@ dispatch(openAuthModal());
 
       {/* Mobile Menu */}
       {menuOpen && (
-      <div className="md:hidden bg-white dark:bg-stone-900 shadow-md transition-colors duration-300 px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden bg-white dark:bg-stone-900 shadow-md transition-colors duration-300 px-6 py-4 flex flex-col gap-4">
           <NavLink to="/"
             onClick={closeMenu}
             className={({ isActive }) =>

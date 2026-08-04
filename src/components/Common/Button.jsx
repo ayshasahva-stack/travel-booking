@@ -11,6 +11,7 @@ const Button = ({
    secondary:"border border-stone-300 dark:border-stone-700 text-stone-900 dark:text-white hover:bg-stone-100 dark:hover:bg-stone-800",
     warning: "bg-amber-400 text-stone-900 hover:bg-amber-300",
     danger: "bg-red-600 text-white hover:bg-red-500",
+     info: "bg-blue-600 text-white hover:bg-blue-700",
   };
 
   return (

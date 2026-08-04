@@ -1,41 +1,38 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    showAuthModal: false,
-    isLogin: true,
+  showAuthModal: false,
+  mode: "login", // "login" | "register"
 };
 
 const uiSlice = createSlice({
-    name: "ui",
-    initialState,
-    reducers: {
-        openAuthModal: (state) => {
-            console.log("openAuthModal");
-            state.showAuthModal = true;
-        },
+  name: "ui",
+  initialState,
 
-        closeAuthModal: (state) => {
-            console.log("closeAuthModal");
-            state.showAuthModal = false;
-        },
+  reducers: {
+    openLogin: (state) => {
+  console.trace("openLogin");
+  state.showAuthModal = true;
+  state.mode = "login";
+},
 
-        setLoginMode: (state) => {
-            console.log("setLoginMode");
-            state.isLogin = true;
-        },
+openRegister: (state) => {
+  console.trace("openRegister");
+  state.showAuthModal = true;
+  state.mode = "register";
+},
 
-        setRegisterMode: (state) => {
-            console.log("setRegisterMode");
-            state.isLogin = false;
-        },
-    },
+closeAuthModal: (state) => {
+  console.trace("closeAuthModal");
+  state.showAuthModal = false;
+},
+  },
 });
 
 export const {
-    openAuthModal,
-    closeAuthModal,
-    setLoginMode,
-    setRegisterMode,
+  openLogin,
+  openRegister,
+  closeAuthModal,
 } = uiSlice.actions;
 
 export default uiSlice.reducer;

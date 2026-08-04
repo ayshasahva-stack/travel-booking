@@ -1,6 +1,6 @@
 import BookingCard from "./BookingCard";
 
-const BookingList = ({ bookings, onCancelBooking }) => {
+const BookingList = ({ bookings, onCancelBooking, onEditBooking }) => {
     return (
         <div className="grid gap-6">
             {bookings.map((booking) => (
@@ -8,6 +8,7 @@ const BookingList = ({ bookings, onCancelBooking }) => {
                     key={booking.id}
                     booking={booking}
                     onCancelBooking={onCancelBooking}
+                     onEditBooking={onEditBooking}
                 />
             ))}
         </div>

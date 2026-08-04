@@ -2,7 +2,7 @@ import React from 'react'
 import heroImage from '../../assets/images/hero.jpg'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
-import { openAuthModal } from "../../redux/ui/uiSlice";
+import { openLogin } from "../../redux/ui/uiSlice";
 import Button from '../Common/Button';
 
 
@@ -20,7 +20,7 @@ const { user } = useSelector((state) => state.auth);
   
   const handleBookNow = () => {
   if (!user) {
-    dispatch(openAuthModal());
+     dispatch(openLogin());
   } else {
     navigate("/booking");
   }

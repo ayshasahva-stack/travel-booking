@@ -14,11 +14,11 @@ const store = configureStore({
     },
 });
 store.subscribe(() => {
-  const { showAuthModal, isLogin } = store.getState().ui;
+  const { showAuthModal, mode } = store.getState().ui;
 
   console.log({
     showAuthModal,
-    isLogin,
+    mode,
   });
 });
 export default store;

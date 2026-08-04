@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector,  } from "react-redux";
-import { Link, useNavigate ,useParams} from "react-router-dom";
+import { useDispatch, useSelector, } from "react-redux";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 import ProgressBar from "../../components/Booking/ProgressBar";
 import BookingSummary from "../../components/Booking/BookingSummary";
@@ -89,19 +89,31 @@ const Booking = () => {
       setStep(step - 1);
     }
   };
+  
 
   const handleConfirmBooking = async () => {
     try {
+      const totalTravelers =
+        Number(bookingData.adults) + Number(bookingData.children);
+
+      const totalPrice =
+        totalTravelers * destination.price;
       const booking = {
         ...bookingData,
+
         destinationId: destination.id,
         destinationName: destination.name,
         country: destination.country,
         image: destination.image,
+
+        pricePerPerson: destination.price,
+        totalTravelers,
+        totalPrice,
+
         status: "Confirmed",
         bookedAt: new Date().toISOString(),
       };
-
+    console.log("Booking Object:", booking);
       await dispatch(createBookingThunk(booking)).unwrap();
 
       navigate("/booking-success", {

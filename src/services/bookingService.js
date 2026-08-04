@@ -16,3 +16,8 @@ export const deleteBooking = async (id) => {
   await axios.delete(`${API_URL}/${id}`);
   return id;
 };
+
+export const updateBooking = async (id, bookingData) => {
+  const response = await axios.patch(`${API_URL}/${id}`, bookingData);
+  return response.data;
+};
