@@ -1,4 +1,4 @@
-# 🌍 WayGo – Travel Booking Website
+# ✈️ WayGo – Travel Booking Website
 
 WayGo is a modern, responsive travel booking web application built using **React.js**. It allows users to explore destinations, book trips, manage their bookings, and securely authenticate using a login/register system. The project demonstrates complete CRUD operations, state management with Redux Toolkit, and API integration using JSON Server.
 
