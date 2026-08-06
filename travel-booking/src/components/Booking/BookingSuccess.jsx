@@ -24,7 +24,7 @@ const BookingSuccess = () => {
                 </h1>
 
                 <p className="text-stone-500 mt-3">
-                    Thank you for choosing TravelEase.
+                    Thank you for choosing WayGo.
                 </p>
 
                 {/* Booking Details */}

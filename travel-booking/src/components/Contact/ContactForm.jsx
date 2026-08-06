@@ -220,7 +220,7 @@ const ContactForm = () => {
           {/* Google Map */}
           <div className="rounded-3xl overflow-hidden shadow-lg min-h-[450px]">
             <iframe
-              title="TravelEase Location"
+              title="WayGo Location"
               src="https://www.google.com/maps?q=Kozhikode,Kerala&output=embed"
               className="w-full h-full min-h-[450px]"
               loading="lazy"

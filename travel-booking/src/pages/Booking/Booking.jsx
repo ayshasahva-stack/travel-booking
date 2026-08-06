@@ -7,7 +7,6 @@ import BookingSummary from "../../components/Booking/BookingSummary";
 import TripDetails from "../../components/Booking/TripDetails";
 import TravelerForm from "../../components/Booking/TravelerForm";
 import PaymentForm from "../../components/Booking/PaymentForm";
-// import BookingSuccess from "../../components/Booking/BookingSuccess";
 import ReviewConfirm from "../../components/Booking/ReviewConfirm";
 import Loading from "../../components/Common/Loading";
 import EmptyState from "../../components/Common/EmptyState";

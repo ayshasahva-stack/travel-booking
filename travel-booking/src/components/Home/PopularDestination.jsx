@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Loading from "../Common/Loading";
 
 const PopularDestinations = () => {
   const navigate = useNavigate();
@@ -9,11 +10,7 @@ const PopularDestinations = () => {
   );
 
   if (loading) {
-    return (
-      <div className="text-center py-20 text-2xl font-semibold">
-        Loading destinations...
-      </div>
-    );
+    return <Loading/>
   }
 
   if (error) {
@@ -68,11 +65,6 @@ const PopularDestinations = () => {
                 </span>
               </div>
 
-              {/* Favourite */}
-              <div className="absolute top-3 right-3 sm:top-5 sm:right-5 bg-white/20 backdrop-blur-md p-2 sm:p-3 rounded-full hover:bg-red-500 hover:text-white transition-all duration-300">
-                🤍
-              </div>
-
               {/* Bottom Content */}
               <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
                 <p className="uppercase tracking-[2px] sm:tracking-[3px] text-xs sm:text-sm text-gray-300">
@@ -92,13 +84,6 @@ const PopularDestinations = () => {
                     <p className="text-yellow-400 text-xl sm:text-2xl lg:text-3xl font-bold">
                       From ${destination.price}
                     </p>
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <span className="text-yellow-400">⭐</span>
-                    <span className="text-sm sm:text-base">
-                      {destination.rating}
-                    </span>
                   </div>
                 </div>
               </div>

@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "server": "json-server --watch db.json --port 3000",
+     "server": "json-server mock-api/db.json --watch --port 3000",
     "lint": "oxlint",
     "preview": "vite preview"
   },

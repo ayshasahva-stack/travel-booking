@@ -28,7 +28,7 @@ const CTASection = () => {
 
         <p className="mt-6 text-base sm:text-lg text-gray-200 leading-8 max-w-2xl mx-auto">
           Discover amazing destinations, create unforgettable memories,
-          and book your dream vacation with TravelEase today.
+          and book your dream vacation with WayGo today.
         </p>
 
         {/* Buttons */}

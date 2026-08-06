@@ -23,12 +23,12 @@ export default function Footer() {
                     < div className="flex items-center gap-2">
                       <FaPlaneDeparture className="text-teal-600 text-2xl" />
                       <h2 className="text-3xl font-bold text-amber-400">
-                        Travel<span className="text-teal-600">Ease</span>
+                        Way<span className="text-teal-600">Go</span>
                       </h2>
                     </div>
 
             <p className="mt-5 text-stone-400 leading-8 max-w-md">
-              TravelEase helps you discover breathtaking destinations,
+              WayGo helps you discover breathtaking destinations,
               book unforgettable trips, and create memories that last a
               lifetime. Your next adventure starts here.
             </p>
@@ -123,7 +123,7 @@ export default function Footer() {
 
               <div className="flex items-center gap-3">
                 <FaEnvelope className="text-teal-500" />
-                <span>support@travelease.com</span>
+                <span>support@WayGo.com</span>
               </div>
 
             </div>
@@ -135,7 +135,7 @@ export default function Footer() {
         <div className="border-t border-stone-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
 
           <p className="text-stone-500 text-center md:text-left">
-            © 2026 TravelEase. All Rights Reserved.
+            © 2026 WayGo. All Rights Reserved.
           </p>
 
           <div className="flex gap-6">

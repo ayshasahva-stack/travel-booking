@@ -25,45 +25,46 @@ const TripDetails = ({
   setErrors,
 }) => {
   const handleChange = (e) => {
-  const { name, value } = e.target;
+    const { name, value } = e.target;
 
-  let updatedData = {
-    ...bookingData,
-    [name]: value,
+    let updatedData = {
+      ...bookingData,
+      [name]: value,
+    };
+
+    // Reset return date if departure date changes
+    if (
+      name === "departDate" &&
+      bookingData.returnDate &&
+      bookingData.returnDate <= value
+    ) {
+      updatedData.returnDate = "";
+    }
+
+    setBookingData(updatedData);
+
+    if (errors[name]) {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: "",
+      }));
+    }
   };
 
-  // If departure date changes and return date becomes invalid
-  if (
-    name === "departDate" &&
-    bookingData.returnDate &&
-    bookingData.returnDate <= value
-  ) {
-    updatedData.returnDate = "";
-  }
-
-  setBookingData(updatedData);
-
-  if (errors[name]) {
-    setErrors((prev) => ({
+  const handleRoom = (roomType) => {
+    setBookingData((prev) => ({
       ...prev,
-      [name]: "",
+      roomType,
     }));
-  }
-};
-const handleRoom = (roomType) => {
-  setBookingData((prev) => ({
-    ...prev,
-    roomType,
-  }));
-};
+  };
+
   return (
     <div>
-      <h2 className="text-2xl font-bold text-stone-900 mb-8">
+      <h2 className="text-2xl font-bold text-stone-900 dark:text-white mb-8">
         Trip Details
       </h2>
 
       {/* Departure Date */}
-
       <Input
         label="Departure Date"
         type="date"
@@ -86,8 +87,7 @@ const handleRoom = (roomType) => {
       />
 
       {/* Room Type */}
-
-      <h3 className="text-xl font-semibold mb-5">
+      <h3 className="text-xl font-semibold text-stone-900 dark:text-white mb-5">
         Select Room Type
       </h3>
 
@@ -97,24 +97,25 @@ const handleRoom = (roomType) => {
             key={room.id}
             type="button"
             onClick={() => handleRoom(room.id)}
-            className={`border-2 rounded-2xl p-5 transition ${bookingData.roomType === room.id
-                ? "border-teal-600 bg-teal-50"
-                : "border-stone-200 hover:border-teal-300"
+            className={`rounded-2xl p-5 border-2 transition-all duration-300
+              ${
+                bookingData.roomType === room.id
+                  ? "border-teal-600 bg-teal-50 dark:bg-teal-900/30 dark:border-teal-500"
+                  : "border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800 hover:border-teal-300 dark:hover:border-teal-500"
               }`}
           >
             <div className="text-4xl mb-3">
               {room.icon}
             </div>
 
-            <h4 className="font-semibold">
+            <h4 className="font-semibold text-stone-900 dark:text-white">
               {room.title}
             </h4>
           </button>
         ))}
       </div>
-
     </div>
   );
 };
 
-export default TripDetails;
+export default TripDetails;6

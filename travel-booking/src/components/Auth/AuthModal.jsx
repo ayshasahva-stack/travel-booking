@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import {closeAuthModal,openLogin,openRegister,setLoginMode} from "../../redux/ui/uiSlice";
+import { closeAuthModal, openLogin, openRegister, setLoginMode } from "../../redux/ui/uiSlice";
 
 import Login from "./Login";
 import Register from "./Register";
@@ -17,7 +17,7 @@ function AuthModal() {
 
   return (
     <div className="fixed inset-0 z-[9999] bg-black/75 flex items-center justify-center p-4">
-      <div className="relative bg-white w-[95%] max-w-5xl h-[90vh] rounded-3xl shadow-2xl overflow-hidden mt-8">
+      <div className="relative bg-white dark:bg-stone-900 w-[92%] max-w-4xl h-[78vh] rounded-3xl shadow-2xl overflow-hidden">
 
         {/* Close Button */}
         <button
@@ -54,8 +54,8 @@ function AuthModal() {
 
             <div className="absolute inset-0 bg-teal-900/50"></div>
 
-            <div className="absolute bottom-12 left-12 right-12 text-white">
-              <p className="text-2xl font-bold mb-2">
+          <div className="absolute bottom-8 left-8 right-8 text-white">
+             <p className="text-xl font-bold leading-relaxed mb-2">
                 "The world is a book, and those who do not travel read only one page."
               </p>
 

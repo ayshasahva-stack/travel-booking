@@ -9,7 +9,7 @@ const contactDetails = [
   {
     icon: <FaMapMarkerAlt size={28} />,
     title: "Our Office",
-    info: "TravelEase, Kozhikode, Kerala, India",
+    info: "WayGo, Kozhikode, Kerala, India",
   },
   {
     icon: <FaPhoneAlt size={28} />,
@@ -19,7 +19,7 @@ const contactDetails = [
   {
     icon: <FaEnvelope size={28} />,
     title: "Email",
-    info: "support@travelease.com",
+    info: "support@WayGo.com",
   },
   {
     icon: <FaClock size={28} />,

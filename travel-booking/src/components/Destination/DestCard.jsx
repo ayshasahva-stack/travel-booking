@@ -79,10 +79,6 @@ const DestCard = ({ destination }) => {
             View Details →
           </button>
 
-          <div className="flex items-center gap-1 text-yellow-500 font-semibold">
-            ⭐ {destination.rating}
-          </div>
-
         </div>
 
       </div>

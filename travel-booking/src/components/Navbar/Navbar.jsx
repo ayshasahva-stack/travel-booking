@@ -1,5 +1,5 @@
-import { FaPlaneDeparture, FaBars, FaTimes } from "react-icons/fa";
-import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import { FaPlaneDeparture, FaBars, FaTimes, } from "react-icons/fa";
+import { NavLink, useNavigate, useLocation,Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from '../../redux/auth/authSlice'
@@ -73,12 +73,12 @@ function Navbar() {
 
 
         {/* Logo */}
-        < div className="flex items-center gap-2">
+       <Link to="/" className="flex items-center gap-2">
           <FaPlaneDeparture className="text-teal-600 text-2xl" />
           <h2 className="text-3xl font-bold text-amber-400">
-            Travel<span className="text-teal-600">Ease</span>
+            Way<span className="text-teal-600">Go</span>
           </h2>
-        </div>
+        </Link>
 
 
         {/* Navigation Links */}
@@ -118,8 +118,8 @@ function Navbar() {
           )}
           <ThemeToggle />
 
-          {currentUser ? (<button onClick={handleLogout} className=" text-teal-600">
-            {currentUser.username} Logout
+          {currentUser ? (<button onClick={handleLogout} className="bg-red-600 text-white hover:bg-red-500 rounded px-3 py-1">
+            Logout
           </button>
           ) : (<button
             onClick={openModal}
@@ -194,9 +194,9 @@ function Navbar() {
                 closeMenu();
                 handleLogout();
               }}
-              className="text-left py-2 text-teal-600 dark:text-teal-400"
+             className="bg-red-600 text-white hover:bg-red-500 rounded  py-1"
             >
-              Hi, {currentUser.username} (Logout)
+            Logout
             </button>
           ) : (
             <button
@@ -209,16 +209,6 @@ function Navbar() {
               Log in
             </button>
           )}
-
-          <button
-            onClick={() => {
-              closeMenu();
-              handleBooking();
-            }}
-            className="bg-blue-600 text-white px-6 py-2 rounded-lg text-center"
-          >
-            Book Now
-          </button>
 
         </div>
       )}

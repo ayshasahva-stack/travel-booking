@@ -3,7 +3,7 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 const faqs = [
   {
-    question: "How can I book a trip on TravelEase?",
+    question: "How can I book a trip on WayGo?",
     answer:
       "Browse destinations, select your preferred package, fill in your booking details, and confirm your reservation through our booking form.",
   },
@@ -47,7 +47,7 @@ const Faq = () => {
 
           <p className="mt-6 text-stone-600 dark:text-stone-400 leading-8">
             Find answers to some of the most common questions about
-            TravelEase and our booking process.
+            WayGo and our booking process.
           </p>
         </div>
 

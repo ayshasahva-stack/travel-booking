@@ -4,6 +4,7 @@ import { loginThunk } from "../../redux/auth/authThunk";
 import { closeAuthModal } from "../../redux/ui/uiSlice";
 import Button from "../Common/Button";
 import Input from "../Common/Input";
+import { FaPlaneDeparture } from "react-icons/fa";
 
 const Login = ({ goToRegister }) => {
   const dispatch = useDispatch();
@@ -16,10 +17,20 @@ const Login = ({ goToRegister }) => {
   const [error, setError] = useState({});
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
+    // Remove error for the field being edited
+    if (error[name]) {
+      setError((prev) => ({
+        ...prev,
+        [name]: "",
+      }));
+    }
   };
 
   const handleLogin = async (e) => {
@@ -69,17 +80,20 @@ const Login = ({ goToRegister }) => {
   };
 
   return (
-    <div className="flex-1 bg-white p-12">
+    <div className="flex-1 bg-white dark:bg-stone-900 p-8 lg:p-10">
 
-      <h1 className="text-4xl font-bold text-teal-700">
-        TravelEase
-      </h1>
+      < div className="flex items-center gap-2">
+        <FaPlaneDeparture className="text-teal-600 text-2xl" />
+        <h1 className="text-3xl font-bold text-amber-400">
+          Way<span className="text-teal-600">Go</span>
+        </h1>
+      </div>
 
-      <h2 className="text-2xl mt-6">
+      <h2 className="text-xl mt-2 dark:text-white">
         Welcome Back
       </h2>
 
-      <p className="text-gray-500 mt-2">
+      <p className="text-gray-500 mt-2 dark:text-gary-400">
         Sign in to continue your journey
       </p>
 
@@ -112,7 +126,7 @@ const Login = ({ goToRegister }) => {
           Sign In
         </Button>
 
-        <div className="mt-8 flex justify-center gap-2">
+        <div className="mt-8 flex justify-center gap-2 dark:text-white">
 
           <p>
             Don't have an account?

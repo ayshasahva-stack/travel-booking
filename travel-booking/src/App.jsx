@@ -7,7 +7,7 @@ import SplashScreen from "./components/Common/SplachScreen";
 
 function App() {
   //  console.log("App Mounted");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Initialize AOS

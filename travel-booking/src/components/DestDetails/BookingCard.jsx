@@ -45,14 +45,6 @@ const BookingCard = ({ destination }) => {
             </span>
           </div>
 
-          <div className="flex justify-between">
-            <span className="text-stone-500">Rating</span>
-
-            <span className="font-semibold text-yellow-500">
-              ⭐ {destination.rating}
-            </span>
-          </div>
-
          <div className="flex justify-between items-center gap-4">
             <span className="text-stone-500">
               Trip Type

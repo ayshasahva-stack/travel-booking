@@ -28,7 +28,7 @@ const AboutStory = () => {
             </h2>
 
             <p className="mt-6 text-stone-600 dark:text-stone-400 leading-8 text-base sm:text-lg">
-              At TravelEase, we believe that every journey begins with
+              At WayGo, we believe that every journey begins with
               excitement. Our goal is to make travel planning simple,
               enjoyable, and stress-free for everyone.
             </p>
@@ -36,7 +36,7 @@ const AboutStory = () => {
             <p className="mt-6 text-stone-600 dark:text-stone-400 leading-8 text-base sm:text-lg">
               Whether you're looking for a peaceful beach vacation,
               an adventurous mountain escape, or a vibrant city tour,
-              TravelEase helps you discover destinations that match your
+              WayGo helps you discover destinations that match your
               style and budget.
             </p>
 
