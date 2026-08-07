@@ -17,7 +17,7 @@ const DestSort = ({ sortBy, setSortBy }) => {
       <option value="">Sort By</option>
       <option value="low">Price: Low to High</option>
       <option value="high">Price: High to Low</option>
-      <option value="rating">Highest Rated</option>
+
     </select>
   );
 };
