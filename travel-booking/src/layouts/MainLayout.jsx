@@ -5,37 +5,18 @@ import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import Footer from '../components/Footer/Footer'
 const MainLayout = () => {
-// const showModal = useSelector((state) => state.ui.showAuthModal);
 
-// console.log("showModal:", showModal);
-// useEffect(() => {
-//   console.log("MainLayout Mounted");
-
-//   return () => {
-//     console.log("MainLayout Unmounted");
-//   };
-// }, []);
-const showModal = useSelector((state) => state.ui.showAuthModal);
-
-useEffect(() => {
-  console.log("showAuthModal:", showModal);
-}, [showModal]);
+  const showModal = useSelector((state) => state.ui.showAuthModal);
 
   return (
     <div>
-      <Navbar
-        
-      />
+      <Navbar/>
 
-      {showModal && (
-        <AuthModal
-         
-        />
-      )}
+      {showModal && (<AuthModal />)}
 
       <Outlet />
 
-      <Footer/>
+      <Footer />
 
     </div>
   )

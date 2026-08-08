@@ -24,7 +24,7 @@ const Login = ({ goToRegister }) => {
       [name]: value,
     }));
 
-    // Remove error for the field being edited
+
     if (error[name]) {
       setError((prev) => ({
         ...prev,

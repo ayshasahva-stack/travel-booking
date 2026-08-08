@@ -16,7 +16,3 @@ export const registerUser = async (userData) => {
 
 }
 
-// export const loginUser = async (email) => {
-//     const response = await api.get(`/users?email=${email}`);
-//     return response.data[0];
-// }

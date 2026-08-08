@@ -1,8 +1,7 @@
-import axios from "axios";
+import api from "./api";
 
-const API_URL = "http://localhost:3000/destinations";
 
 export const getAllDestinations = async () => {
-  const response = await axios.get(API_URL);
+  const response = await api.get("/destinations");
   return response.data;
 };

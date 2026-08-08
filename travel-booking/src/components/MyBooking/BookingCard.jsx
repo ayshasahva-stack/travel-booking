@@ -15,17 +15,17 @@ const BookingCard = ({ booking, onCancelBooking, onEditBooking }) => {
   return (
     <div className="  rounded-2xl  transition-all duration-300 overflow-hidden flex flex-col md:flex-row">
 
-      {/* Image */}
+      
       <img
         src={booking.image}
         alt={booking.destinationName}
         className="w-full md:w-[35%] h-100 object-cover mt-15 rounded-2xl me-5"
       />
 
-      {/* Content */}
+      
       <div className="w-full md:w-[65%] p-5">
 
-        {/* Heading */}
+   
         <h2 className="text-2xl font-bold text-stone-900 dark:text-white">
           {booking.destinationName}
         </h2>
@@ -35,7 +35,7 @@ const BookingCard = ({ booking, onCancelBooking, onEditBooking }) => {
           {booking.country}
         </p>
 
-        {/* Details */}
+     
         <div className="mt-4 space-y-2 text-sm text-stone-700 dark:text-stone-300">
 
           <p className="flex items-center gap-2">
@@ -88,7 +88,7 @@ const BookingCard = ({ booking, onCancelBooking, onEditBooking }) => {
           </p>
 
 
-          {/* Status */}
+         
           <div className="flex items-center gap-2 mt-2">
             <FaCheckCircle className="text-green-600" />
 
@@ -104,7 +104,7 @@ const BookingCard = ({ booking, onCancelBooking, onEditBooking }) => {
             </span>
           </div>
 
-          {/* Price */}
+
           <div className="mt-3 rounded-xl bg-stone-100 dark:bg-stone-800 p-3">
 
             <p className="flex items-center gap-2">
@@ -124,7 +124,6 @@ const BookingCard = ({ booking, onCancelBooking, onEditBooking }) => {
             {new Date(booking.bookedAt).toLocaleDateString()}
           </p>
 
-          {/* Buttons */}
           <div className="mt-4 flex flex-wrap gap-3">
 
             <Button

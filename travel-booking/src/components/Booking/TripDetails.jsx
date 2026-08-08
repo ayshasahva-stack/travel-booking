@@ -32,7 +32,7 @@ const TripDetails = ({
       [name]: value,
     };
 
-    // Reset return date if departure date changes
+    
     if (
       name === "departDate" &&
       bookingData.returnDate &&
@@ -64,7 +64,7 @@ const TripDetails = ({
         Trip Details
       </h2>
 
-      {/* Departure Date */}
+     
       <Input
         label="Departure Date"
         type="date"
@@ -75,7 +75,7 @@ const TripDetails = ({
         error={errors.departDate}
       />
 
-      {/* Return Date */}
+      
       <Input
         label="Return Date"
         type="date"
@@ -86,7 +86,7 @@ const TripDetails = ({
         error={errors.returnDate}
       />
 
-      {/* Room Type */}
+     
       <h3 className="text-xl font-semibold text-stone-900 dark:text-white mb-5">
         Select Room Type
       </h3>
@@ -118,4 +118,4 @@ const TripDetails = ({
   );
 };
 
-export default TripDetails;6
+export default TripDetails;

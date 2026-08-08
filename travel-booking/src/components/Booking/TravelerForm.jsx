@@ -7,32 +7,32 @@ const TravelerForm = ({
   setErrors,
 }) => {
   const handleChange = (e) => {
-  let { name, value } = e.target;
+    let { name, value } = e.target;
 
-  // Phone Number
-  if (name === "phone") {
-    value = value.replace(/\D/g, "").slice(0, 10);
-  }
 
-  setBookingData({
-    ...bookingData,
-    [name]: value,
-  });
+    if (name === "phone") {
+      value = value.replace(/\D/g, "").slice(0, 10);
+    }
 
-  if (errors[name]) {
-    setErrors((prev) => ({
-      ...prev,
-      [name]: "",
-    }));
-  }
-};
+    setBookingData({
+      ...bookingData,
+      [name]: value,
+    });
+
+    if (errors[name]) {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: "",
+      }));
+    }
+  };
   return (
     <div>
       <h2 className="text-2xl font-bold text-stone-900 mb-8">
         Traveler Details
       </h2>
 
-      {/* Name */}
+
 
       <div className="grid md:grid-cols-2 gap-5">
         <Input
@@ -54,7 +54,7 @@ const TravelerForm = ({
         />
       </div>
 
-      {/* Phone */}
+
 
       <Input
         label="Phone Number"
@@ -87,7 +87,7 @@ const TravelerForm = ({
         />
       </div>
 
-      {/* Special Requests */}
+
 
       <div className="mt-5">
 

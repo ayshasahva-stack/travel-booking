@@ -9,31 +9,27 @@ const PaymentForm = ({
   const handleChange = (e) => {
     let { name, value } = e.target;
 
-    // Card Number
+
     if (name === "cardNumber") {
-      // Keep only digits
+
       value = value.replace(/\D/g, "");
 
-      // Limit to 16 digits
       value = value.slice(0, 16);
 
-      // Add a space after every 4 digits
       value = value.replace(/(\d{4})(?=\d)/g, "$1 ");
     }
 
-    // CVV
+   
     if (name === "cvv") {
       value = value.replace(/\D/g, "").slice(0, 4);
     }
-    // Expiry Date
+    
     if (name === "expiry") {
-      // Keep only digits
+     
       value = value.replace(/\D/g, "");
-
-      // Limit to 4 digits
+    
       value = value.slice(0, 4);
 
-      // Add "/" after the month
       if (value.length > 2) {
         value = value.slice(0, 2) + "/" + value.slice(2);
       }
@@ -58,7 +54,7 @@ const PaymentForm = ({
         Payment Details
       </h2>
 
-      {/* Demo Notice */}
+    
 
       <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 mb-8">
         <p className="text-amber-700 text-sm">
@@ -66,7 +62,7 @@ const PaymentForm = ({
         </p>
       </div>
 
-      {/* Cardholder Name */}
+     
 
       <Input
         label="Cardholder Name"
@@ -86,8 +82,7 @@ const PaymentForm = ({
         error={errors.cardNumber}
       />
 
-      {/* Expiry + CVV */}
-
+      
       <div className="grid md:grid-cols-2 gap-5">
         <Input
           label="Expiry Date"
@@ -104,7 +99,7 @@ const PaymentForm = ({
           name="cvv"
           value={bookingData.cvv}
           onChange={handleChange}
-          placeholder="123"
+          placeholder="cvv"
           maxLength={4}
           error={errors.cvv}
         />

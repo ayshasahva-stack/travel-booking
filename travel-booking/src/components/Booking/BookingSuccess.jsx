@@ -4,7 +4,7 @@ const BookingSuccess = () => {
     const location = useLocation();
     const { destination, bookingData } = location.state || {};
     if (!destination || !bookingData) {
-        return <Navigate to="/destinations" replace />;
+        return <Navigate to="/" />;
     }
     const totalPrice =
         destination.price *
@@ -13,12 +13,12 @@ const BookingSuccess = () => {
         <section className="bg-stone-50 dark:bg-stone-800 min-h-screen flex items-center justify-center px-6 py-20">
             <div className="bg-white max-w-2xl w-full rounded-3xl shadow-lg p-8 text-center">
 
-                {/* Success Icon */}
+                
                 <FaCheckCircle
                     className="mx-auto text-green-500 text-7xl mb-6"
                 />
 
-                {/* Heading */}
+                
                 <h1 className="text-4xl font-bold text-stone-900">
                     Booking Confirmed!
                 </h1>
@@ -27,7 +27,7 @@ const BookingSuccess = () => {
                     Thank you for choosing WayGo.
                 </p>
 
-                {/* Booking Details */}
+                
                 <div className="bg-stone-50 rounded-2xl p-6 mt-8 text-left space-y-4">
 
                     <div className="flex justify-between">
@@ -72,14 +72,14 @@ const BookingSuccess = () => {
                     </div>
                 </div>
 
-                {/* Buttons */}
+               
                 <div className="flex justify-center gap-4 mt-8">
 
                     <Link
-                        to="/"
+                        to="/my-bookings"
                         className="px-6 py-3 bg-teal-700 text-white rounded-xl hover:bg-teal-600 transition"
                     >
-                        Back to Home
+                        My Booking
                     </Link>
 
                     <Link

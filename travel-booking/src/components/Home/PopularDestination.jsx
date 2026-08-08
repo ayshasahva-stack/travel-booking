@@ -25,7 +25,7 @@ const PopularDestinations = () => {
     <section className="py-14 sm:py-16 lg:py-20 bg-gray-100 dark:bg-stone-950 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Heading */}
+        
         <div className="text-center mb-12 lg:mb-14">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white">
             Explore Popular Destinations
@@ -37,7 +37,7 @@ const PopularDestinations = () => {
           </p>
         </div>
 
-        {/* Cards */}
+       
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8">
           {destinations.slice(0, 4).map((destination, index) => (
             <div
@@ -55,17 +55,17 @@ const PopularDestinations = () => {
                 className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700 ease-in-out"
               />
 
-              {/* Overlay */}
+             
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
 
-              {/* Tag */}
+              
               <div className="absolute top-3 left-3 sm:top-5 sm:left-5">
                 <span className="bg-yellow-400 text-black font-semibold px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm">
                   {destination.tag}
                 </span>
               </div>
 
-              {/* Bottom Content */}
+             
               <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
                 <p className="uppercase tracking-[2px] sm:tracking-[3px] text-xs sm:text-sm text-gray-300">
                   📍 {destination.city}, {destination.country}

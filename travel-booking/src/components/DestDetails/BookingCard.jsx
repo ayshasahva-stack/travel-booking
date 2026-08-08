@@ -16,14 +16,13 @@ const BookingCard = ({ destination }) => {
 }
    navigate(`/booking/${destination.id}`);
 
-    // console.log("isAuthenticated:", isAuthenticated);
   };
 
   return (
     <aside className="lg:sticky lg:top-28 h-fit">
     <div className="bg-white rounded-3xl shadow-xl p-5 sm:p-6 lg:p-8 transition-shadow duration-300 hover:shadow-2xl">
 
-        {/* Price */}
+      
         <div className="mb-8">
          <h2 className="text-3xl sm:text-4xl font-bold text-teal-700">
             ${destination.price.toLocaleString()}
@@ -34,7 +33,7 @@ const BookingCard = ({ destination }) => {
           </p>
         </div>
 
-        {/* Details */}
+      
         <div className="space-y-5 border-y py-6">
 
           <div className="flex justify-between">
@@ -67,7 +66,6 @@ const BookingCard = ({ destination }) => {
 
         </div>
 
-        {/* Button */}
         <Button
           onClick={handleBooking}
         className="w-full mt-8 bg-teal-700 text-white py-3 sm:py-4 rounded-2xl font-semibold text-base sm:text-lg hover:bg-teal-600 transition"
@@ -75,7 +73,7 @@ const BookingCard = ({ destination }) => {
           Book Now
         </Button>
 
-        {/* Footer */}
+      
        <p className="text-center text-xs sm:text-sm text-stone-500 mt-6">
           🔒 Secure Booking • Free Cancellation
         </p>

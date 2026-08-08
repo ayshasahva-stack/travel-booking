@@ -74,7 +74,8 @@ const EditBooking = ({ booking, onClose }) => {
                 <p className="mb-4 dark:text-white">
                     <strong>Traveler:</strong> {booking.firstName} {booking.lastName}
                 </p>
-                {/* Adults */}
+                
+
                 <label className="block mb-1 font-medium dark:text-white">
                     Adults
                 </label>
@@ -86,7 +87,7 @@ const EditBooking = ({ booking, onClose }) => {
                     className="w-full border border-stone-300 dark:border-stone-700 bg-white  rounded-lg px-3 py-2 mb-3"
                 />
 
-                {/* Children */}
+               
                 <label className="block mb-1 font-medium dark:text-white">
                     Children
                 </label>
@@ -98,7 +99,7 @@ const EditBooking = ({ booking, onClose }) => {
                     className="w-full border border-stone-300 dark:border-stone-700 bg-white  rounded-lg px-3 py-2 mb-3"
                 />
 
-                {/* Departure */}
+              
                 <label className="block mb-1 font-medium dark:text-white">
                     Departure Date
                 </label>
@@ -110,7 +111,7 @@ const EditBooking = ({ booking, onClose }) => {
                     className="w-full border border-stone-300 dark:border-stone-700 bg-white rounded-lg px-3 py-2 mb-3"
                 />
 
-                {/* Return */}
+              
                 <label className="block mb-1 font-medium dark:text-white">
                     Return Date
                 </label>
@@ -122,7 +123,7 @@ const EditBooking = ({ booking, onClose }) => {
                     className="w-full border border-stone-300 dark:border-stone-700 bg-white  rounded-lg px-3 py-2 mb-3"
                 />
 
-                {/* Phone */}
+               
                 <label className="block mb-1 font-medium dark:text-white">
                     Phone Number
                 </label>
@@ -134,7 +135,7 @@ const EditBooking = ({ booking, onClose }) => {
                     className="w-full border border-stone-300 dark:border-stone-700 bg-white rounded-lg px-3 py-2 mb-3"
                 />
 
-                {/* Special Requests */}
+              
                 <label className="block mb-1 font-medium dark:text-white">
                     Special Requests
                 </label>

@@ -20,6 +20,7 @@ export const validateTripDetails = (bookingData) => {
   return errors;
 };
 
+
 export const validateTravelerDetails = (bookingData) => {
   const errors = {};
 
@@ -43,6 +44,7 @@ export const validateTravelerDetails = (bookingData) => {
 
   return errors;
 };
+
 
 export const validatePaymentDetails = (bookingData) => {
   const errors = {};

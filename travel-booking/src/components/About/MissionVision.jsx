@@ -21,10 +21,10 @@ const MissionVision = () => {
           </p>
         </div>
 
-        {/* Cards */}
+        
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
-          {/* Mission */}
+      
           <div className="bg-stone-50 rounded-3xl p-8 md:p-10 shadow-md hover:shadow-xl transition duration-300">
             <div className="w-16 h-16 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center">
               <FaBullseye size={28} />
@@ -42,7 +42,7 @@ const MissionVision = () => {
             </p>
           </div>
 
-          {/* Vision */}
+          
           <div className="bg-stone-50 rounded-3xl p-8 md:p-10 shadow-md hover:shadow-xl transition duration-300">
             <div className="w-16 h-16 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center">
               <FaEye size={28} />

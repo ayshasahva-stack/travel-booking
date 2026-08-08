@@ -8,7 +8,7 @@ const DestCard = ({ destination }) => {
       onClick={() => navigate(`/destinations/${destination.id}`)}
       className="bg-white dark:bg-stone-900 rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer"
     >
-      {/* Image */}
+      
       <div className="relative">
 
         <img
@@ -17,19 +17,19 @@ const DestCard = ({ destination }) => {
           loading="lazy"
           className="w-full h-56 sm:h-64 lg:h-72 object-cover"
         />
-        {/* Tag */}
+       
         <span className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-yellow-400 text-black px-4 py-2 rounded-full text-sm font-semibold">
           {destination.tag}
         </span>
 
-        {/* Duration */}
+        
         <span className="absolute top-4 right-4 bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-200 px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300">
           {destination.duration}
         </span>
 
       </div>
 
-      {/* Content */}
+      
 
       <div className="p-6">
 
@@ -61,7 +61,7 @@ const DestCard = ({ destination }) => {
 
         </div>
 
-        {/* Categories */}
+      
 
         <div className="flex gap-2 mt-5">
 
@@ -71,7 +71,7 @@ const DestCard = ({ destination }) => {
 
         </div>
 
-        {/* Bottom */}
+       
 
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mt-6">
 

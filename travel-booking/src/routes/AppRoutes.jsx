@@ -15,17 +15,13 @@ import BookingSuccess from "../components/Booking/BookingSuccess";
 import ScrolltoTop from "../components/Common/ScrolltoTop";
 
 
-// import Register from "../components/Auth/Register";
-// import Login from "../components/Auth/Login";
 
 
 const AppRoutes = () => {
     return (
         <BrowserRouter>
-        <ScrolltoTop/>
+            <ScrolltoTop />
             <Routes>
-                {/* <Route path="/register" element={<Register />} />
-                <Route path="/login" element={<Login />} /> */}
 
                 <Route element={<MainLayout />} >
                     <Route path="/" element={<Home />} />
@@ -34,8 +30,8 @@ const AppRoutes = () => {
                     <Route element={<ProtectedRoute />}>
                         <Route path="/booking" element={<Booking />} />
                         <Route path="/booking/:id" element={<Booking />} />
-                         <Route path="/booking-success" element={<BookingSuccess />} />
-                         <Route path="/my-bookings" element={<MyBooking />} />
+                        <Route path="/booking-success" element={<BookingSuccess />} />
+                        <Route path="/my-bookings" element={<MyBooking />} />
                     </Route>
 
                     <Route path="/about" element={<About />} />

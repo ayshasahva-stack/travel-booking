@@ -9,14 +9,14 @@ const AboutHero = () => {
           "url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')",
       }}
     >
-      {/* Overlay */}
+
       <div className="absolute inset-0 bg-black/60"></div>
 
-      {/* Content */}
+
       <div className="relative z-10 flex h-full items-center justify-center px-6">
         <div className="max-w-3xl text-center text-white">
           <p className="uppercase tracking-[5px] text-white font-semibold">
-            About us 
+            About us
           </p>
 
           <h1 className="mt-6 text-5xl md:text-6xl font-bold leading-tight">

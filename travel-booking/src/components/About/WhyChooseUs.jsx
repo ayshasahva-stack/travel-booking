@@ -37,7 +37,7 @@ const WhyChooseUs = () => {
     <section className="py-16 md:py-24  bg-gradient-to-r from-teal-700 to-cyan-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Heading */}
+       
 
         <div className="text-center max-w-3xl mx-auto mb-14">
           <p className="uppercase tracking-[4px] text-amber-300 font-semibold">
@@ -56,7 +56,7 @@ const WhyChooseUs = () => {
           </p>
         </div>
 
-        {/* Cards */}
+        
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 

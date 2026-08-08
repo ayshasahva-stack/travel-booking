@@ -17,15 +17,14 @@ export default function Footer() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
 
-          {/* Brand */}
           <div className="lg:col-span-2">
-             {/* Logo */}
-                    < div className="flex items-center gap-2">
-                      <FaPlaneDeparture className="text-teal-600 text-2xl" />
-                      <h2 className="text-3xl font-bold text-amber-400">
-                        Way<span className="text-teal-600">Go</span>
-                      </h2>
-                    </div>
+            
+            < div className="flex items-center gap-2">
+              <FaPlaneDeparture className="text-teal-600 text-2xl" />
+              <h2 className="text-3xl font-bold text-amber-400">
+                Way<span className="text-teal-600">Go</span>
+              </h2>
+            </div>
 
             <p className="mt-5 text-stone-400 leading-8 max-w-md">
               WayGo helps you discover breathtaking destinations,
@@ -64,7 +63,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
+          
           <div>
             <h3 className="text-white text-xl font-semibold mb-5">
               Quick Links
@@ -103,7 +102,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
+          
           <div>
             <h3 className="text-white text-xl font-semibold mb-5">
               Contact Us
@@ -131,7 +130,7 @@ export default function Footer() {
 
         </div>
 
-        {/* Bottom */}
+        
         <div className="border-t border-stone-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
 
           <p className="text-stone-500 text-center md:text-left">
@@ -140,14 +139,14 @@ export default function Footer() {
 
           <div className="flex gap-6">
             <Link
-              to="/privacy"
+              to="/"
               className="hover:text-amber-400 transition"
             >
               Privacy Policy
             </Link>
 
             <Link
-              to="/terms"
+              to="/"
               className="hover:text-amber-400 transition"
             >
               Terms & Conditions

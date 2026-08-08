@@ -1,5 +1,5 @@
 import { FaPlaneDeparture, FaBars, FaTimes, } from "react-icons/fa";
-import { NavLink, useNavigate, useLocation,Link } from "react-router-dom";
+import { NavLink, useNavigate, useLocation, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from '../../redux/auth/authSlice'
@@ -64,16 +64,15 @@ function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isHomePage && !scrolled
-          ? "bg-transparent"
-          : "bg-white dark:bg-stone-900 shadow-md"
+        ? "bg-transparent"
+        : "bg-white dark:bg-stone-900 shadow-md"
         }`}
     >
 
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
 
-        {/* Logo */}
-       <Link to="/" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <FaPlaneDeparture className="text-teal-600 text-2xl" />
           <h2 className="text-3xl font-bold text-amber-400">
             Way<span className="text-teal-600">Go</span>
@@ -81,7 +80,6 @@ function Navbar() {
         </Link>
 
 
-        {/* Navigation Links */}
         <div className="hidden md:flex gap-8 items-center">
           <NavLink to='/'
             className={({ isActive }) =>
@@ -127,7 +125,8 @@ function Navbar() {
 
         </div>
 
-        {/* Mobile Hamburger */}
+
+        {/* mobile  */}
         <div className="md:hidden">
           <button onClick={toggleMenu}>
             {menuOpen ? (
@@ -139,7 +138,6 @@ function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden bg-white dark:bg-stone-900 shadow-md transition-colors duration-300 px-6 py-4 flex flex-col gap-4">
           <NavLink to="/"
@@ -194,9 +192,9 @@ function Navbar() {
                 closeMenu();
                 handleLogout();
               }}
-             className="bg-red-600 text-white hover:bg-red-500 rounded  py-1"
+              className="bg-red-600 text-white hover:bg-red-500 rounded  py-1"
             >
-            Logout
+              Logout
             </button>
           ) : (
             <button
@@ -204,10 +202,8 @@ function Navbar() {
                 closeMenu();
                 openModal();
               }}
-              className="text-left py-2 text-stone-700 dark:text-stone-200 hover:text-teal-6000"
-            >
-              Log in
-            </button>
+              className="text-left py-2 text-stone-700 dark:text-stone-200 hover:text-teal-6000">
+              Log in</button>
           )}
 
         </div>

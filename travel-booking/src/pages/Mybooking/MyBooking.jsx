@@ -46,9 +46,7 @@ const MyBookings = () => {
 
     if (error) {
         return (
-            <p className="text-center pt-28 text-red-500">
-                {error}
-            </p>
+           <ErrorMessage />
         );
     }
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { registerThunk } from "../../redux/auth/authThunk";
 import { FaPlaneDeparture } from "react-icons/fa";
@@ -26,7 +26,7 @@ const Register = ({ goToLogin }) => {
       [name]: value,
     }));
 
-    // Remove error for the field being edited
+    
     if (errors[name]) {
       setErrors((prev) => ({
         ...prev,
@@ -37,7 +37,6 @@ const Register = ({ goToLogin }) => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    console.log("preventDefault called");
 
     const newErrors = {};
 
@@ -79,7 +78,7 @@ const Register = ({ goToLogin }) => {
 
       setErrors({});
 
-      // Switch to Login without closing modal
+     
       goToLogin();
     } else {
       setErrors({

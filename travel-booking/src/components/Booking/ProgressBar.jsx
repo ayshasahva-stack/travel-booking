@@ -7,7 +7,7 @@ const STEPS = [
 
 const ProgressBar = ({ step }) => {
   return (
-    <div className="mb-10">
+    <div className="mb-10 ">
       <div className="flex items-center justify-between">
 
         {STEPS.map((item, index) => (
@@ -15,7 +15,7 @@ const ProgressBar = ({ step }) => {
             key={item}
             className="flex items-center flex-1"
           >
-            {/* Circle */}
+           
             <div className="flex flex-col items-center flex-shrink-0">
 
               <div
@@ -44,7 +44,7 @@ const ProgressBar = ({ step }) => {
 
             </div>
 
-            {/* Line */}
+            
 
             {index !== STEPS.length - 1 && (
               <div

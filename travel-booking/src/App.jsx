@@ -6,17 +6,14 @@ import SplashScreen from "./components/Common/SplachScreen";
 
 
 function App() {
-  //  console.log("App Mounted");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Initialize AOS
     AOS.init({
       duration: 800,
       once: true,
     });
 
-    // Splash screen timer
     const timer = setTimeout(() => {
       setLoading(false);
     }, 2000);

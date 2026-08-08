@@ -83,7 +83,7 @@ const ContactForm = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
-          {/* Contact Form */}
+         
           <div className="bg-white rounded-3xl shadow-lg p-8 md:p-10">
 
             <p className="uppercase tracking-[4px] text-teal-700 font-semibold">
@@ -102,7 +102,7 @@ const ContactForm = () => {
 
             <form onSubmit={handleSubmit} className="mt-8 space-y-6">
 
-              {/* Full Name */}
+             
               <div>
                 <label className="block mb-2 font-medium">
                   Full Name
@@ -128,7 +128,7 @@ const ContactForm = () => {
                 )}
               </div>
 
-              {/* Email */}
+            
               <div>
                 <label className="block mb-2 font-medium">
                   Email Address
@@ -154,7 +154,7 @@ const ContactForm = () => {
                 )}
               </div>
 
-              {/* Subject */}
+            
               <div>
                 <label className="block mb-2 font-medium">
                   Subject
@@ -180,7 +180,6 @@ const ContactForm = () => {
                 )}
               </div>
 
-              {/* Message */}
               <div>
                 <label className="block mb-2 font-medium">
                   Message
@@ -217,7 +216,7 @@ const ContactForm = () => {
 
           </div>
 
-          {/* Google Map */}
+    
           <div className="rounded-3xl overflow-hidden shadow-lg min-h-[450px]">
             <iframe
               title="WayGo Location"

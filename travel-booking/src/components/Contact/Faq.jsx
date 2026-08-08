@@ -35,7 +35,7 @@ const Faq = () => {
     <section className="py-16 md:py-24 bg-white dark:bg-stone-950">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Heading */}
+       
         <div className="text-center mb-14">
           <p className="uppercase tracking-[4px] text-teal-700 font-semibold">
             FAQs
@@ -51,7 +51,7 @@ const Faq = () => {
           </p>
         </div>
 
-        {/* Accordion */}
+       
         <div className="space-y-5">
 
           {faqs.map((faq, index) => (

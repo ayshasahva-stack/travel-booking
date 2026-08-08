@@ -13,10 +13,8 @@ import EmptyState from "../../components/Common/EmptyState";
 import Button from "../../components/Common/Button";
 
 import { validateTripDetails, validateTravelerDetails, validatePaymentDetails } from "../../utils/BookingValidation";
+
 import { createBookingThunk } from "../../redux/booking/bookingThunk";
-
-
-
 import { fetchDestinations } from "../../redux/destination/destinationThunk";
 
 
@@ -31,8 +29,8 @@ const Booking = () => {
   );
 
   const destination = destinations.find(
-    (item) => String(item.id) === id
-  );
+    (item) => String(item.id) === id);
+
   const [step, setStep] = useState(0);
   const [errors, setErrors] = useState({});
 
@@ -55,6 +53,7 @@ const Booking = () => {
     expiry: "",
     cvv: "",
   });
+
   const nextStep = () => {
     let newErrors = {};
 
@@ -88,7 +87,7 @@ const Booking = () => {
       setStep(step - 1);
     }
   };
-  
+
 
   const handleConfirmBooking = async () => {
     try {
@@ -97,6 +96,7 @@ const Booking = () => {
 
       const totalPrice =
         totalTravelers * destination.price;
+        
       const booking = {
         ...bookingData,
 
@@ -112,7 +112,7 @@ const Booking = () => {
         status: "Confirmed",
         bookedAt: new Date().toISOString(),
       };
-    console.log("Booking Object:", booking);
+     
       await dispatch(createBookingThunk(booking)).unwrap();
 
       navigate("/booking-success", {
@@ -164,7 +164,7 @@ const Booking = () => {
 
         <div className="grid lg:grid-cols-3 gap-6 lg:gap-10">
 
-          {/* Left */}
+          
 
           <div className="lg:col-span-2 bg-white rounded-3xl shadow-sm p-5 sm:p-6 lg:p-8">
             <ProgressBar step={step} />
@@ -233,7 +233,7 @@ const Booking = () => {
             </div>
           </div>
 
-          {/* Right */}
+          
 
           <BookingSummary
             destination={destination}

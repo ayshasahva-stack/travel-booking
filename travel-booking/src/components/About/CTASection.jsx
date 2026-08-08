@@ -10,10 +10,10 @@ const CTASection = () => {
         backgroundImage: `url(${ctaImage})`,
       }}
     >
-      {/* Overlay */}
+     
       <div className="absolute inset-0 bg-black/65"></div>
 
-      {/* Content */}
+    
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
 
         <p className="uppercase tracking-[4px] text-amber-4 00 font-semibold">
@@ -31,7 +31,7 @@ const CTASection = () => {
           and book your dream vacation with WayGo today.
         </p>
 
-        {/* Buttons */}
+       
         <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
 
           <Link

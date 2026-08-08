@@ -11,7 +11,7 @@ const BookingSummary = ({ destination, bookingData }) => {
     <aside className="lg:sticky lg:top-28 h-fit">
       <div className="bg-white rounded-3xl shadow-sm p-6">
 
-        {/* Image */}
+       
 
         <img
           src={destination.image}
@@ -19,7 +19,7 @@ const BookingSummary = ({ destination, bookingData }) => {
           className="w-full h-52 object-cover rounded-2xl"
         />
 
-        {/* Destination */}
+        
 
         <div className="mt-5">
 
@@ -33,7 +33,7 @@ const BookingSummary = ({ destination, bookingData }) => {
 
         </div>
 
-        {/* Summary */}
+       
 
         <div className="border-t border-b border-stone-200 my-6 py-5 space-y-4">
 
@@ -69,7 +69,7 @@ const BookingSummary = ({ destination, bookingData }) => {
 
         </div>
 
-        {/* Total */}
+       
 
         <div className="flex justify-between items-center">
 
@@ -83,7 +83,7 @@ const BookingSummary = ({ destination, bookingData }) => {
 
         </div>
 
-        {/* Footer */}
+      
 
         <div className="mt-6 bg-stone-50 rounded-2xl p-4">
 

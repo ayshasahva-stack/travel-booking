@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   showAuthModal: false,
-  mode: "login", // "login" | "register"
+  mode: "login",
 };
 
 const uiSlice = createSlice({
@@ -11,24 +11,21 @@ const uiSlice = createSlice({
 
   reducers: {
     openLogin: (state) => {
-  console.trace("openLogin");
-  state.showAuthModal = true;
-  state.mode = "login";
-},
+      state.showAuthModal = true;
+      state.mode = "login";
+    },
 
-openRegister: (state) => {
-  console.trace("openRegister");
-  state.showAuthModal = true;
-  state.mode = "register";
-},
+    openRegister: (state) => {
+      state.showAuthModal = true;
+      state.mode = "register";
+    },
 
-closeAuthModal: (state) => {
-  console.trace("closeAuthModal");
-  state.showAuthModal = false;
-},
-setLoginMode: (state) => {
-  state.mode = "login";
-},
+    closeAuthModal: (state) => {
+      state.showAuthModal = false;
+    },
+    setLoginMode: (state) => {
+      state.mode = "login";
+    },
   },
 });
 

@@ -10,15 +10,8 @@ const store = configureStore({
         auth: authReducer,
         ui: uiReducer,
         destination: destinationReducer,
-         booking: bookingReducer,
+        booking: bookingReducer,
     },
 });
-store.subscribe(() => {
-  const { showAuthModal, mode } = store.getState().ui;
 
-  console.log({
-    showAuthModal,
-    mode,
-  });
-});
 export default store;

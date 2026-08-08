@@ -54,10 +54,6 @@ const Destinations = () => {
     sortedDestinations.sort((a, b) => b.price - a.price);
   }
 
-  if (sortBy === "rating") {
-    sortedDestinations.sort((a, b) => b.rating - a.rating);
-  }
-
   return (
     <section className="min-h-screen bg-gray-50 dark:bg-stone-950 pt-28 pb-16">
       <div className="max-w-7xl mx-auto px-6">

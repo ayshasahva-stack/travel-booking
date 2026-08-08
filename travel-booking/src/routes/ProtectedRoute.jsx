@@ -1,16 +1,16 @@
 import React from 'react'
-import { Outlet ,Navigate} from 'react-router-dom'
+import { Outlet, Navigate } from 'react-router-dom'
 
 const ProtectedRoute = () => {
 
-  const currentUser=JSON.parse(localStorage.getItem("currentUser"))
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"))
 
-  if(!currentUser){
-    return <Navigate to='/'/>
+  if (!currentUser) {
+    return <Navigate to='/' />
   }
-  
-  return <Outlet/>
-  
+
+  return <Outlet />
+
 }
 
 export default ProtectedRoute
