@@ -20,12 +20,6 @@ const ReviewConfirm = ({ destination, bookingData }) => {
           </span>
         </div>
 
-        <div className="flex justify-between border-b pb-3">
-          <span className="text-stone-500">Duration</span>
-          <span className="font-semibold">
-            {destination.duration}
-          </span>
-        </div>
 
         <div className="flex justify-between border-b pb-3">
           <span className="text-stone-500">Departure</span>

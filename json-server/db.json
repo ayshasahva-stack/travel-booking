@@ -11,19 +11,31 @@
       "email": "seiva@gmail.com",
       "password": "Seiva@123",
       "id": "tFmxsGV2aCM"
+    },
+    {
+      "username": "sahva",
+      "email": "sahva@gmail.com",
+      "password": "Sahva@123",
+      "id": "VhCujEGoYAI"
+    },
+    {
+      "username": "aysha",
+      "email": "aysha0@gmail.com",
+      "password": "!Q1qwertuikj",
+      "id": "95XNgtsuTdU"
     }
   ],
   "bookings": [
     {
       "departDate": "2026-08-22",
       "returnDate": "2026-08-28",
-      "adults": 1,
+      "adults": "2",
       "children": 0,
       "roomType": "standard",
       "firstName": "ABDUL GAFOOR",
       "lastName": "KURUNGOT",
       "phone": "9632587410",
-      "specialRequests": "",
+      "specialRequests": "qqqqqqqqqqqqqqqqqq",
       "cardName": "qqqqqq",
       "cardNumber": "2222 2222 2222 2222",
       "expiry": "12/11",
@@ -33,8 +45,8 @@
       "country": "Japan",
       "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800",
       "pricePerPerson": 3100,
-      "totalTravelers": 1,
-      "totalPrice": 3100,
+      "totalTravelers": 2,
+      "totalPrice": 6200,
       "status": "Confirmed",
       "bookedAt": "2026-08-08T00:14:41.912Z",
       "id": "7mZv6KvKq4A"
@@ -63,6 +75,56 @@
       "status": "Confirmed",
       "bookedAt": "2026-08-08T01:48:54.217Z",
       "id": "rNg-HlD6k-c"
+    },
+    {
+      "departDate": "2026-08-08",
+      "returnDate": "2026-08-15",
+      "adults": 1,
+      "children": "1",
+      "roomType": "deluxe",
+      "firstName": "aysha",
+      "lastName": "sahva",
+      "phone": "9876543211",
+      "specialRequests": "",
+      "cardName": "sahva",
+      "cardNumber": "1111 1111 1111 1111",
+      "expiry": "11/11",
+      "cvv": "1111",
+      "destinationId": "3",
+      "destinationName": "Amalfi Coast",
+      "country": "Italy",
+      "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800",
+      "pricePerPerson": 2900,
+      "totalTravelers": 2,
+      "totalPrice": 5800,
+      "status": "Confirmed",
+      "bookedAt": "2026-08-08T04:35:17.516Z",
+      "id": "l9T-XG-u1Y4"
+    },
+    {
+      "departDate": "2026-08-09",
+      "returnDate": "2026-08-14",
+      "adults": 1,
+      "children": "1",
+      "roomType": "suite",
+      "firstName": "laila ",
+      "lastName": "rumana",
+      "phone": "8590452337",
+      "specialRequests": "",
+      "cardName": "laila rumana",
+      "cardNumber": "1111 1111 1111 1111",
+      "expiry": "11/11",
+      "cvv": "1111",
+      "destinationId": "4",
+      "destinationName": "Bali",
+      "country": "Indonesia",
+      "image": "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?w=800",
+      "pricePerPerson": 1800,
+      "totalTravelers": 2,
+      "totalPrice": 3600,
+      "status": "Confirmed",
+      "bookedAt": "2026-08-08T09:32:50.363Z",
+      "id": "VbDNgVkHfwA"
     }
   ],
   "destinations": [
@@ -80,7 +142,6 @@
       "price": 2400,
       "rating": 4.9,
       "reviews": 1284,
-      "duration": "5 Days / 4 Nights",
       "image": "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=800",
       "gallery": [
         "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=800",
@@ -130,7 +191,6 @@
       "price": 3100,
       "rating": 4.8,
       "reviews": 987,
-      "duration": "6 Days / 5 Nights",
       "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800",
       "gallery": [
         "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800",
@@ -180,7 +240,6 @@
       "price": 2900,
       "rating": 4.7,
       "reviews": 1103,
-      "duration": "5 Days / 4 Nights",
       "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800",
       "gallery": [
         "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800",
@@ -231,7 +290,6 @@
       "price": 1800,
       "rating": 4.8,
       "reviews": 2341,
-      "duration": "6 Days / 5 Nights",
       "image": "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?w=800",
       "gallery": [
         "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?w=800",
@@ -281,7 +339,6 @@
       "price": 950,
       "rating": 4.8,
       "reviews": 865,
-      "duration": "4 Days / 3 Nights",
       "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800",
       "gallery": [
         "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800",
@@ -331,7 +388,6 @@
       "price": 2800,
       "rating": 4.7,
       "reviews": 1742,
-      "duration": "5 Days / 4 Nights",
       "image": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800",
       "gallery": [
         "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800",
@@ -382,7 +438,6 @@
       "price": 2600,
       "rating": 4.9,
       "reviews": 1965,
-      "duration": "6 Days / 5 Nights",
       "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800",
       "gallery": [
         "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800",
@@ -433,7 +488,6 @@
       "price": 3500,
       "rating": 5,
       "reviews": 1458,
-      "duration": "7 Days / 6 Nights",
       "image": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800",
       "gallery": [
         "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800",
@@ -484,7 +538,6 @@
       "price": 3900,
       "rating": 5,
       "reviews": 2184,
-      "duration": "5 Days / 4 Nights",
       "image": "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800",
       "gallery": [
         "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800",
@@ -535,7 +588,6 @@
       "price": 1200,
       "rating": 4.6,
       "reviews": 1523,
-      "duration": "3 Days / 2 Nights",
       "image": "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800",
       "gallery": [
         "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800",
@@ -586,7 +638,6 @@
       "price": 3000,
       "rating": 4.8,
       "reviews": 1842,
-      "duration": "6 Days / 5 Nights",
       "image": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800",
       "gallery": [
         "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800",
@@ -637,7 +688,6 @@
       "price": 3200,
       "rating": 4.9,
       "reviews": 2678,
-      "duration": "6 Days / 5 Nights",
       "image": "https://images.unsplash.com/photo-1499092346589-b9b6be3e94b2?w=800",
       "gallery": [
         "https://images.unsplash.com/photo-1499092346589-b9b6be3e94b2?w=800",

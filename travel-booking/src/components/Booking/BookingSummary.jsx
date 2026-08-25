@@ -37,15 +37,6 @@ const BookingSummary = ({ destination, bookingData }) => {
 
         <div className="border-t border-b border-stone-200 my-6 py-5 space-y-4">
 
-          <div className="flex justify-between">
-            <span className="text-stone-500">
-              Duration
-            </span>
-
-            <span className="font-semibold">
-              {destination.duration}
-            </span>
-          </div>
 
           <div className="flex justify-between">
             <span className="text-stone-500">

@@ -75,9 +75,6 @@ const PopularDestinations = () => {
                   {destination.name}
                 </h3>
 
-                <p className="text-gray-300 mt-2 sm:mt-3 text-xs sm:text-sm">
-                  {destination.duration}
-                </p>
 
                 <div className="flex justify-between items-center mt-4 sm:mt-6">
                   <div>

@@ -22,11 +22,6 @@ const DestCard = ({ destination }) => {
           {destination.tag}
         </span>
 
-        
-        <span className="absolute top-4 right-4 bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-200 px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300">
-          {destination.duration}
-        </span>
-
       </div>
 
       
